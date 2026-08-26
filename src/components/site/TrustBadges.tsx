@@ -4,7 +4,7 @@ const badges = [
   { icon: BadgeCheck, label: "Licensed Locksmith", sub: "QLD licence" },
   { icon: ShieldCheck, label: "Fully Insured", sub: "Public liability" },
   { icon: Award, label: "Industry Member", sub: "Association" },
-  { icon: FileCheck, label: "Work Guaranteed", sub: "Written guarantee" },
+  { icon: FileCheck, label: "Workmanship Guarantee", sub: "Written guarantee" },
 ];
 
 export function TrustBadges() {
@@ -26,9 +26,6 @@ export function TrustBadges() {
             </li>
           ))}
         </ul>
-        <p className="mt-4 text-center text-xs text-muted-foreground">
-          Licensing, insurance and association logos to be added here.
-        </p>
       </div>
     </section>
   );

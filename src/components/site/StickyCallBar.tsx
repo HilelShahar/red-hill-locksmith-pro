@@ -1,6 +1,6 @@
 import { Phone, FileText } from "lucide-react";
-import { Link } from "@tanstack/react-router";
 import { business } from "@/lib/site";
+import { QuoteLink } from "./QuoteLink";
 
 export function StickyCallBar() {
   return (
@@ -15,13 +15,10 @@ export function StickyCallBar() {
             <Phone className="size-5 shrink-0" strokeWidth={2.5} />
             Call Now — 24/7
           </a>
-          <Link
-            to="/contact"
-            className="flex shrink-0 items-center justify-center gap-1.5 rounded-lg border-2 border-border px-3 py-3.5 font-display text-sm font-bold text-foreground"
-          >
+          <QuoteLink className="flex shrink-0 items-center justify-center gap-1.5 rounded-lg border-2 border-border px-3 py-3.5 font-display text-sm font-bold text-foreground">
             <FileText className="size-4" />
             Quote
-          </Link>
+          </QuoteLink>
         </div>
       </div>
       {/* Desktop: floating call pill */}

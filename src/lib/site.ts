@@ -13,7 +13,7 @@ export const business = {
 export const sellingPoints = [
   { icon: "clock", title: "24/7 Emergency Service", text: "Day, night, weekends and public holidays." },
   { icon: "timer", title: "15–20 Minute Arrival", text: "Average arrival time across inner Brisbane." },
-  { icon: "badge", title: "Fully Licensed", text: "Licensed Queensland locksmith you can trust." },
+  { icon: "badge", title: "Fully Licensed", text: "Trusted locksmith services provided by a licensed Queensland security professional." },
   { icon: "shield", title: "All Work Guaranteed", text: "Every job backed by our workmanship guarantee." },
   { icon: "dollar", title: "Call-outs From $35", text: "Honest, transparent pricing quoted up front." },
   { icon: "smile", title: "Friendly & Professional", text: "Respectful service and clean, tidy workmanship." },
@@ -72,19 +72,6 @@ export const services: {
       "Door prep and correct hardware fitting",
       "Code, user and access setup with a walkthrough",
       "Airbnb and short-stay keyless entry",
-    ],
-  },
-  {
-    slug: "commercial-security",
-    name: "Commercial Security Systems",
-    tagline: "Protect your premises and staff",
-    description:
-      "Restricted key systems, access control, door hardware and security upgrades for offices, warehouses, retail and body corporate properties. Scheduled work outside trading hours available.",
-    points: [
-      "Restricted and master key systems",
-      "Access control and keypad entry",
-      "Commercial door closers, panic and fire hardware",
-      "Maintenance and after-hours call-outs",
     ],
   },
   {
@@ -181,10 +168,10 @@ export const testimonials = [
 ];
 
 export const navLinks = [
-  { to: "/", label: "Home" },
-  { to: "/services", label: "Services" },
-  { to: "/about", label: "About Us" },
-  { to: "/service-areas", label: "Service Areas" },
-  { to: "/reviews", label: "Reviews" },
-  { to: "/contact", label: "Contact" },
+  { to: "/", hash: "", label: "Home" },
+  { to: "/services", hash: "", label: "Services" },
+  { to: "/about", hash: "", label: "About Us" },
+  { to: "/service-areas", hash: "", label: "Service Areas" },
+  { to: "/reviews", hash: "", label: "Reviews" },
+  { to: "/", hash: "quote", label: "Contact" },
 ] as const;

@@ -1,5 +1,5 @@
-import { Link } from "@tanstack/react-router";
 import { CallButton } from "./CallButton";
+import { QuoteLink } from "./QuoteLink";
 
 export function CtaBand({
   title = "Locked out or need a lock sorted today?",
@@ -17,12 +17,9 @@ export function CtaBand({
         </div>
         <div className="flex flex-col gap-3 sm:flex-row lg:shrink-0">
           <CallButton variant="ink" size="lg" />
-          <Link
-            to="/contact"
-            className="inline-flex items-center justify-center rounded-lg border-2 border-primary-foreground/70 px-7 py-4 font-display text-lg font-extrabold"
-          >
+          <QuoteLink className="inline-flex items-center justify-center rounded-lg border-2 border-primary-foreground/70 px-7 py-4 font-display text-lg font-extrabold">
             Get a Free Quote
-          </Link>
+          </QuoteLink>
         </div>
       </div>
     </section>

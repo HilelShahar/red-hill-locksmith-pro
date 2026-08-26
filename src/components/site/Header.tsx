@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { KeyRound, Menu, X, Phone, Clock } from "lucide-react";
 import { business, navLinks } from "@/lib/site";
+import { smoothScrollToId } from "@/lib/scroll";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -38,9 +39,11 @@ export function Header() {
             <nav className="hidden items-center gap-1 lg:flex">
               {navLinks.map((l) => (
                 <Link
-                  key={l.to}
+                  key={l.label}
                   to={l.to}
-                  activeOptions={{ exact: l.to === "/" }}
+                  hash={l.hash}
+                  onClick={() => l.hash && smoothScrollToId(l.hash)}
+                  activeOptions={{ exact: l.to === "/", includeHash: l.to === "/" }}
                   activeProps={{ className: "bg-accent text-accent-foreground" }}
                   className="rounded-md px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
                 >
@@ -72,10 +75,14 @@ export function Header() {
             <div className="mx-auto max-w-6xl px-4 py-2">
               {navLinks.map((l) => (
                 <Link
-                  key={l.to}
+                  key={l.label}
                   to={l.to}
-                  onClick={() => setOpen(false)}
-                  activeOptions={{ exact: l.to === "/" }}
+                  hash={l.hash}
+                  onClick={() => {
+                    setOpen(false);
+                    if (l.hash) smoothScrollToId(l.hash);
+                  }}
+                  activeOptions={{ exact: l.to === "/", includeHash: l.to === "/" }}
                   activeProps={{ className: "text-primary" }}
                   className="block border-b border-border/60 py-3 font-display text-lg font-bold last:border-0"
                 >

@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Star, ExternalLink } from "lucide-react";
 import { CallButton } from "@/components/site/CallButton";
 import { Testimonials } from "@/components/site/Testimonials";
-import { Gallery } from "@/components/site/Gallery";
+// import { Gallery } from "@/components/site/Gallery";
 import { CtaBand } from "@/components/site/CtaBand";
 import { business, testimonials } from "@/lib/site";
 
@@ -60,7 +60,7 @@ function ReviewsPage() {
       </section>
 
       <Testimonials />
-      <Gallery />
+      {/* <Gallery /> */}
       <CtaBand title="Join hundreds of happy Brisbane customers" />
     </>
   );
