@@ -41,7 +41,7 @@ function ServicesPage() {
             Residential, commercial &amp; automotive locksmithing
           </h1>
           <p className="mt-4 max-w-2xl opacity-90">
-            One licensed local locksmith for every lock and security job — from a 2am lockout to a
+            One Experienced local locksmith for every lock and security job — from a 2am lockout to a
             full commercial key system. All work guaranteed.
           </p>
           <CallButton className="mt-7" size="lg" />

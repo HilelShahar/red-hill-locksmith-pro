@@ -26,7 +26,7 @@ export const Route = createFileRoute("/about")({
 });
 
 const promises = [
-  "Fully licensed Queensland locksmith",
+  "Experienced Queensland locksmith",
   "Clear pricing quoted before we start work",
   "Call-out fees starting from $35",
   "Non-destructive entry wherever possible",
@@ -40,7 +40,7 @@ function AboutPage() {
       <section className="bg-ink py-14 text-ink-foreground">
         <div className="mx-auto max-w-6xl px-4">
           <p className="eyebrow text-primary-foreground/80">About Us</p>
-          <h1 className="mt-2 text-4xl sm:text-5xl">Your local, licensed Brisbane locksmith</h1>
+          <h1 className="mt-2 text-4xl sm:text-5xl">Your local, experienced Brisbane locksmith</h1>
           <p className="mt-4 max-w-2xl opacity-90">
             Based in Red Hill, trusted across Brisbane's inner north, inner west and CBD.
           </p>
@@ -53,7 +53,7 @@ function AboutPage() {
             <h2 className="text-3xl sm:text-4xl">Fast, honest, and properly qualified</h2>
             <div className="mt-4 space-y-4 text-muted-foreground">
               <p>
-                {business.name} is a licensed locksmith business serving homes, businesses and
+                {business.name} is an experienced locksmith business serving homes, businesses and
                 vehicles right across Brisbane. We built this business on two simple things: turning
                 up quickly, and charging what we quoted.
               </p>
@@ -92,7 +92,7 @@ function AboutPage() {
 
       <SellingPoints />
       <TrustBadges />
-      <CtaBand title="Talk to a licensed locksmith now" />
+      <CtaBand title="Talk to an experienced locksmith now" />
     </>
   );
 }

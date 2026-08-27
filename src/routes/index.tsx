@@ -15,7 +15,7 @@ import { business } from "@/lib/site";
 
 const title = "Brisbane Locksmith 24/7 | Red Hill Security & Locksmith";
 const description =
-  "Locked out? Licensed Brisbane locksmith arriving in 15-20 minutes. 24/7 emergency lockouts, rekeying, smart locks, safes. Call-outs from $35.";
+  "Locked out? Experienced Brisbane locksmith arriving in 15-20 minutes. 24/7 emergency lockouts, rekeying, smart locks, safes. Call-outs from $35.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -37,7 +37,7 @@ function Home() {
       <section className="relative isolate">
         <img
           src={heroImage}
-          alt="Licensed Red Hill locksmith working on a residential front door lock in Brisbane"
+          alt="Experienced Red Hill locksmith working on a residential front door lock in Brisbane"
           width={1600}
           height={1104}
           className="absolute inset-0 size-full object-cover"

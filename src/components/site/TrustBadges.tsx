@@ -1,7 +1,7 @@
 import { BadgeCheck, ShieldCheck, Award, FileCheck } from "lucide-react";
 
 const badges = [
-  { icon: BadgeCheck, label: "Licensed Locksmith", sub: "QLD licence" },
+  { icon: BadgeCheck, label: "Experienced Locksmith", sub: "QLD licence" },
   { icon: ShieldCheck, label: "Fully Insured", sub: "Public liability" },
   { icon: Award, label: "Industry Member", sub: "Association" },
   { icon: FileCheck, label: "Workmanship Guarantee", sub: "Written guarantee" },
