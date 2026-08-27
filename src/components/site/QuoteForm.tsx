@@ -2,6 +2,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { Send } from "lucide-react";
 import { business, services, suburbs } from "@/lib/site";
+import { submitEnquiry } from "@/lib/submit-enquiry";
 import { cn } from "@/lib/utils";
 
 type Mode = "quote" | "enquiry";
@@ -13,42 +14,55 @@ export function QuoteForm({ mode = "quote", className }: { mode?: Mode; classNam
   const [sending, setSending] = useState(false);
   const isQuote = mode === "quote";
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
     setSending(true);
 
-    const subject = isQuote
-      ? `Free quote request — ${String(data.get("service") ?? "Locksmith service")}`
-      : "Website enquiry";
-    const body = [
-      `Name: ${data.get("name") ?? ""}`,
-      `Phone: ${data.get("phone") ?? ""}`,
-      `Email: ${data.get("email") ?? ""}`,
-      isQuote ? `Service needed: ${data.get("service") ?? ""}` : null,
-      isQuote ? `Suburb: ${data.get("suburb") ?? ""}` : null,
-      "",
-      String(data.get("message") ?? ""),
-    ]
-      .filter((line) => line !== null)
-      .join("\n");
+    const shared = {
+      name: String(data.get("name") ?? ""),
+      phone: String(data.get("phone") ?? ""),
+      email: String(data.get("email") ?? ""),
+      message: String(data.get("message") ?? ""),
+      company: String(data.get("company") ?? ""),
+    };
 
-    window.location.href = `mailto:${business.email}?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`;
+    try {
+      await submitEnquiry({
+        data: isQuote
+          ? {
+              mode: "quote",
+              ...shared,
+              service: String(data.get("service") ?? ""),
+              suburb: String(data.get("suburb") ?? ""),
+            }
+          : {
+              mode: "enquiry",
+              ...shared,
+            },
+      });
 
-    toast.success("Opening your email app", {
-      description: `In an emergency, call ${business.phoneDisplay} — we answer 24/7.`,
-    });
-    form.reset();
-    setSending(false);
+      toast.success(isQuote ? "Quote request sent" : "Message sent", {
+        description: `We'll get back to you soon. Locked out? Call ${business.phoneDisplay} — we answer 24/7.`,
+      });
+      form.reset();
+    } catch {
+      toast.error("Couldn't send your request", {
+        description: `Please call ${business.phoneDisplay} or email ${business.email}.`,
+      });
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
     <form
       onSubmit={handleSubmit}
-      className={cn("shadow-card rounded-2xl border border-border bg-card p-6 sm:p-8", className)}
+      className={cn(
+        "shadow-card relative rounded-2xl border border-border bg-card p-6 sm:p-8",
+        className,
+      )}
     >
       <h2 className="text-2xl sm:text-3xl">{isQuote ? "Get a Free Quote" : "General Enquiry"}</h2>
       <p className="mt-2 text-sm text-muted-foreground">
@@ -116,21 +130,26 @@ export function QuoteForm({ mode = "quote", className }: { mode?: Mode; classNam
               </datalist>
             </div>
           </>
-        ) : (
-          <div className="sm:col-span-2">
-            <label htmlFor="enquiry-email" className="font-display text-sm font-bold">
-              Email
-            </label>
-            <input
-              id="enquiry-email"
-              name="email"
-              type="email"
-              required
-              autoComplete="email"
-              className={fieldClass}
-            />
-          </div>
-        )}
+        ) : null}
+
+        <div className="sm:col-span-2">
+          <label htmlFor={`${mode}-email`} className="font-display text-sm font-bold">
+            Email {isQuote ? <span className="font-medium text-muted-foreground">(optional)</span> : null}
+          </label>
+          <input
+            id={`${mode}-email`}
+            name="email"
+            type="email"
+            required={!isQuote}
+            autoComplete="email"
+            className={fieldClass}
+          />
+        </div>
+
+        <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+          <label htmlFor={`${mode}-company`}>Company</label>
+          <input id={`${mode}-company`} name="company" type="text" tabIndex={-1} autoComplete="off" />
+        </div>
 
         <div className="sm:col-span-2">
           <label htmlFor={`${mode}-message`} className="font-display text-sm font-bold">
@@ -157,7 +176,7 @@ export function QuoteForm({ mode = "quote", className }: { mode?: Mode; classNam
         className="gradient-primary mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg px-6 py-4 font-display text-lg font-extrabold text-primary-foreground transition-transform active:scale-[0.99] disabled:opacity-60 sm:w-auto"
       >
         <Send className="size-5" strokeWidth={2.5} />
-        {isQuote ? "Send Quote Request" : "Send Message"}
+        {sending ? "Sending…" : isQuote ? "Send Quote Request" : "Send Message"}
       </button>
       <p className="mt-3 text-xs text-muted-foreground">
         Locked out right now? Don't wait — call {business.phoneDisplay}.
