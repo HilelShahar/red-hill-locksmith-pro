@@ -63,7 +63,7 @@ function Home() {
             </div>
             <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold">
               <li className="flex items-center gap-1.5">
-                <ShieldCheck className="size-4 shrink-0" /> Fully licensed &amp; guaranteed
+                <ShieldCheck className="size-4 shrink-0"/> Experienced & licensed
               </li>
               <li className="flex items-center gap-1.5">
                 <MapPin className="size-4 shrink-0" /> Brisbane &amp; inner suburbs

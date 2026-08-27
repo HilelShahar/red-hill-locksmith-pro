@@ -38,55 +38,6 @@ function ServiceAreasPage() {
         </div>
       </section>
 
-      <section className="py-12">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="shadow-card overflow-hidden rounded-2xl border border-border bg-card">
-            <div className="relative aspect-[16/9] w-full bg-secondary">
-              <svg
-                viewBox="0 0 800 450"
-                role="img"
-                aria-label="Simplified map of Brisbane's inner north and inner west showing our service area around Red Hill"
-                className="size-full"
-              >
-                <rect width="800" height="450" fill="var(--secondary)" />
-                <path
-                  d="M0 300 C120 260 200 320 300 300 C420 275 470 200 560 190 C660 180 720 240 800 220 L800 450 L0 450 Z"
-                  fill="var(--accent)"
-                />
-                <path
-                  d="M60 60 C200 120 260 210 400 240 C520 265 620 340 760 400"
-                  fill="none"
-                  stroke="var(--primary)"
-                  strokeWidth="10"
-                  strokeLinecap="round"
-                  opacity="0.35"
-                />
-                <circle cx="320" cy="210" r="150" fill="var(--primary)" opacity="0.1" />
-                <circle cx="320" cy="210" r="150" fill="none" stroke="var(--primary)" strokeWidth="3" strokeDasharray="10 8" />
-                <circle cx="320" cy="210" r="12" fill="var(--primary)" />
-                <text x="344" y="205" fontSize="22" fontWeight="700" fill="var(--foreground)">
-                  Red Hill
-                </text>
-                <text x="344" y="230" fontSize="16" fill="var(--muted-foreground)">
-                  Our base — 15–20 min radius
-                </text>
-                <text x="470" y="330" fontSize="18" fontWeight="700" fill="var(--foreground)">
-                  Brisbane CBD
-                </text>
-                <circle cx="452" cy="325" r="8" fill="var(--foreground)" />
-              </svg>
-            </div>
-            <p className="border-t border-border px-5 py-3 text-sm text-muted-foreground">
-              Indicative service area — we regularly travel further across greater Brisbane. Call{" "}
-              <a href={business.phoneHref} className="font-semibold text-primary underline underline-offset-4">
-                {business.phoneDisplay}
-              </a>{" "}
-              to confirm your address.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <ServiceAreas />
 
       <section className="pb-16">
