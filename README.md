@@ -1,29 +1,36 @@
-# Welcome to your Lovable project
+# Red Hill Security & Locksmith
 
-This project was built with [Lovable](https://lovable.dev).
+Public site for Red Hill Security & Locksmith. Quote requests are saved locally by the Vite dev server.
 
-## Build with Lovable
+## Setup
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+1. Install [Node.js](https://nodejs.org/) (version 20 or newer).
+2. Install dependencies:
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+```bash
+npm install
+```
 
-## Development
+3. Start the site:
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+```bash
 npm run dev
 ```
 
-## Built with
+Open the URL Vite prints (typically `http://localhost:5173`).
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+## Quote requests
+
+The contact form posts to `POST /api/quotes`.
+
+Locally, `npm run dev` and `npm run preview` write each request to `data/quotes/` as JSON, plus the attached photo when one is included. That folder is gitignored.
+
+On Vercel, `api/quotes.js` emails the request with Resend. Set `RESEND_API_KEY` in the project environment (see `.env.example`). `ENQUIRY_FROM_EMAIL` and `ENQUIRY_TO_EMAIL` are optional.
+
+## Scripts
+
+- `npm run dev` — local site and quote API
+- `npm run build` — production build into `dist/`
+- `npm run preview` — serve the production build, including the quote API
+- `npm run lint` — lint the site components
+- `npm run typecheck` — typecheck the included JS files
