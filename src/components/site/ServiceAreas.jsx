@@ -1,11 +1,6 @@
+import { Link } from "react-router-dom";
 import { MapPin } from "lucide-react";
-
-const SUBURBS = [
-  "Red Hill", "Paddington", "Kelvin Grove", "Ashgrove", "Bardon",
-  "Petrie Terrace", "Spring Hill", "Herston", "Newmarket", "Milton",
-  "Auchenflower", "Brisbane City", "Fortitude Valley", "Bowen Hills",
-  "West End", "South Brisbane"
-];
+import { SERVICE_AREA_NAMES, getSuburbByName, suburbPath } from "@/data/suburbs";
 
 export default function ServiceAreas() {
   return (
@@ -24,15 +19,29 @@ export default function ServiceAreas() {
         </div>
 
         <ul className="mt-8 grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-4">
-          {SUBURBS.map((s) => (
-            <li
-              key={s}
-              className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm font-medium text-foreground"
-            >
-              <MapPin className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-              {s}
-            </li>
-          ))}
+          {SERVICE_AREA_NAMES.map((s) => {
+            const suburb = getSuburbByName(s);
+            const className =
+              "inline-flex items-center gap-2 rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm font-medium text-foreground";
+            return (
+              <li key={s}>
+                {suburb ? (
+                  <Link
+                    to={suburbPath(suburb.slug)}
+                    className={`${className} w-full hover:border-primary/40`}
+                  >
+                    <MapPin className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                    {s}
+                  </Link>
+                ) : (
+                  <span className={`${className} w-full`}>
+                    <MapPin className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                    {s}
+                  </span>
+                )}
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>

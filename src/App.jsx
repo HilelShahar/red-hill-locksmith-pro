@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
+import SuburbLocksmithPage from './pages/SuburbLocksmithPage';
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/locksmith-paddington" element={<SuburbLocksmithPage />} />
+          <Route path="/locksmith-ashgrove" element={<SuburbLocksmithPage />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Router>

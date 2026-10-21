@@ -14,14 +14,14 @@ const SERVICE_OPTIONS = [
   "Something else"
 ];
 
-export default function ContactSection() {
+export default function ContactSection({ defaultLocation = "" }) {
   const [form, setForm] = useState({
     name: "",
     phone: "",
     email: "",
     company: "",
     service: "",
-    location: "",
+    location: defaultLocation,
     message: ""
   });
   const [errors, setErrors] = useState(/** @type {Record<string, string | undefined>} */ ({}));
