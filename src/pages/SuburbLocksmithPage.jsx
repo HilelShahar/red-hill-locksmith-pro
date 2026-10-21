@@ -12,6 +12,7 @@ import {
   Wrench,
   Car,
   Archive,
+  ChevronDown,
 } from "lucide-react";
 import { Image } from "@/components/ui/image";
 import SuburbPageHeader from "@/components/site/SuburbPageHeader";
@@ -36,7 +37,7 @@ const SERVICE_ICONS = {
 
 function buildJsonLd(suburb) {
   const url = `${SITE_URL}/locksmith-${suburb.slug}`;
-  return [
+  const data = [
     {
       "@context": "https://schema.org",
       "@type": "Locksmith",
@@ -114,6 +115,23 @@ function buildJsonLd(suburb) {
       ],
     },
   ];
+
+  if (suburb.faqs?.length) {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: suburb.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.a,
+        },
+      })),
+    });
+  }
+
+  return data;
 }
 
 export default function SuburbLocksmithPage() {
@@ -331,6 +349,27 @@ export default function SuburbLocksmithPage() {
             </p>
           </div>
         </section>
+
+        {suburb.faqs?.length > 0 && (
+          <section className="scroll-mt-16">
+            <div className="mx-auto max-w-3xl px-4 py-14 sm:py-20">
+              <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                Questions before we come to {suburb.name}
+              </h2>
+              <div className="mt-8">
+                {suburb.faqs.map((faq) => (
+                  <details key={faq.q} className="group border-b border-border">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-left text-base font-semibold text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md [&::-webkit-details-marker]:hidden">
+                      {faq.q}
+                      <ChevronDown className="h-5 w-5 shrink-0 text-primary transition-transform group-open:rotate-180" aria-hidden="true" />
+                    </summary>
+                    <p className="pb-5 pr-8 text-sm leading-relaxed text-muted-foreground">{faq.a}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         <section className="bg-foreground text-white">
           <div className="mx-auto max-w-6xl px-4 py-12 sm:py-16">

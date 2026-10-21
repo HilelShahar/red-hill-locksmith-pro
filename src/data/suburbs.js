@@ -48,67 +48,94 @@ export const suburbs = {
     slug: "paddington",
     name: "Paddington",
     postcode: "4064",
-    h1: "Locksmith in Paddington",
-    eyebrow: "Paddington QLD 4064 · Mobile locksmith",
-    title: "Locksmith in Paddington | 24/7 Mobile Service | Red Hill Security & Locksmith",
+    h1: "Locksmith Paddington for homes, shops and lockouts",
+    eyebrow: "Paddington, Brisbane · 4064",
+    title: "Locksmith Paddington Brisbane | Emergency & Rekeying | Red Hill Security & Locksmith",
     metaDescription:
-      "Locksmith in Paddington for house, shop and car lockouts, rekeying, repairs and smart locks. Mobile service from nearby Red Hill. Call 0416 807 444.",
+      `Locksmith in Paddington, Brisbane for emergency lockouts, rekey locks, lock replacement and repairs. Mobile locksmith from Red Hill. Call ${PHONE_DISPLAY}.`,
     heroLead:
-      "If you're locked out in Paddington or need locks sorted on a timber Queenslander or shopfront, we come to you. We're based just over the hill in Red Hill — typically 15–20 minutes away — and we quote the price before any work starts.",
-    introHeading: "A mobile locksmith for Paddington homes and shopfronts",
+      "If the door will not open, or the keys need to change with the household, we drive to you from Red Hill. Paddington has no shopfront of ours to visit. The price is settled before any lock is opened, repaired or changed.",
+    introHeading: "Start with the job, not a trip across town",
     intro: [
-      "Paddington sits between Red Hill and Milton, with steep streets, character cottages and a busy run of cafes and shops along Given Terrace and Latrobe Terrace. We cover the suburb as a mobile service from our Red Hill base, not from a shopfront in Paddington itself.",
-      "That local run means we regularly work on older front doors that have had a few lock changes over the years, unit entries off the main roads, and after-hours lockouts when the restaurants pack up. Tell us the street and the job and we'll give you a straight arrival time."
+      "A call from Paddington, Brisbane is usually one of three jobs. Someone is locked out. A household has changed and the old keys should no longer work. Or a lock is tired enough that it needs a repair or a replacement. Say which it is, and name the street, and we will tell you whether to come straight away or book a time.",
+      "Paddington is the inner-west suburb beside our Red Hill base, in postcode 4064. Milton, Petrie Terrace, Bardon and Auchenflower sit on its other sides, and those suburbs are already on our service list. This page is for mobile locksmith work. We do not ask you to come to an office in Paddington.",
+      `For an emergency locksmith in Paddington, call ${PHONE_DISPLAY}. For rekeying, a repair, a lock replacement or a smart lock upgrade that can wait for a booking, use Contact us and leave the suburb as Paddington.`
     ],
-    servicesHeading: "Locksmith services available in Paddington",
+    servicesHeading: "What a visit in Paddington can cover",
     servicesIntro:
-      "The same field work we do across inner Brisbane, written for the homes, rentals and small businesses we actually see in Paddington.",
+      "The list matches the services on our homepage. The notes below are for houses, units and small businesses in Paddington.",
     services: [
       {
-        title: "Lockouts",
-        text: "Locked out of a house, unit or shop in Paddington? We're available 24/7 and aim for non-destructive entry so the lock still works once you're back inside. Call-outs start from $35, with the full price quoted before we start."
+        title: "Emergency locksmith call-outs",
+        text: "Use an emergency locksmith in Paddington when a house, unit, shop or car is shut and you cannot get in. We answer 24/7 and try to open the lock without damaging it, so you are not paying for a new one just to get inside. Call-outs start from $35, and the full price is given before we begin."
       },
       {
-        title: "Car lockouts",
-        text: "Keys left in the car on Enoggera Terrace, Given Terrace or a side street? We handle vehicle lockouts as part of the same mobile service — useful when you're near the cafes or parked on a steep Paddington block."
-      },
-      {
-        title: "Rekeying",
-        text: "Moved into a Paddington rental, or you're not sure who still has a key? Rekeying keeps your existing locks in place and makes old keys useless. It's a common job on older timber doors around here."
+        title: "Rekey locks",
+        text: "Rekey locks in Paddington after a move, a lost key, or when earlier keys should be retired. Your current lock stays where it is. Previous keys no longer open it. That is the practical choice when the hardware itself is still sound."
       },
       {
         title: "Lock replacement",
-        text: "If a lock is worn, loose in the timber, or simply not up to the door, we supply and fit a quality replacement and make sure it latches cleanly. We'll explain the options before we swap anything."
+        text: "Lock replacement in Paddington is the step when the lock is damaged, loose in the door, or simply not the right fit anymore. We supply a quality lock, fit it, and check that it latches. You approve the choice and the cost before the old one comes off."
       },
       {
         title: "Lock repairs",
-        text: "Sticky barrels, handles that spin, and deadbolts that no longer throw properly are all regular Paddington call-outs — especially on original or mixed hardware. Often a repair is enough; we'll say so if it is."
+        text: "A repair is enough for some doors: a barrel that drags, a handle that spins without catching, or a deadlock that stops short. We will repair that lock when it is the sensible fix, and we will quote a replacement when it is not."
       },
       {
-        title: "Smart lock installation",
-        text: "Keypad, fingerprint and app-controlled locks fitted and set up for the household. Paddington doors vary a lot in thickness and condition, so we check the door first and recommend a lock that will actually last on it."
+        title: "Smart lock upgrades",
+        text: "Smart lock installation and upgrades cover keypad, fingerprint and app-controlled locks. We check the door first, because a timber house door and a later unit door rarely take the same product, then we fit the lock and set the codes before leaving."
+      },
+      {
+        title: "Safe opening and fitting",
+        text: "Forgotten combination, or a safe that will not open? We open and service domestic and commercial safes, and we supply and bolt down new ones. It is the same mobile visit, at the Paddington address you give us."
       }
     ],
-    residentialHeading: "Help for Paddington houses and units",
+    residentialHeading: "Houses and units that need a locksmith",
     residential:
-      "A lot of Paddington's housing is timber Queenslanders, workers' cottages and small blocks of units. We rekey after a move, upgrade thin or tired night latches, sort sliding-door issues and get people back inside without unnecessary damage. If the door is original, we work with what's there rather than forcing a lock that doesn't suit it.",
-    commercialHeading: "Shops and workplaces around Given Terrace",
+      "At home, the work is getting you back in, changing which keys open the door, or dealing with a night latch or deadlock that has worn out on a house or a unit. If the door can take a smart lock, we fit it and leave the access set up. The door stays as it is. We do not force hardware onto a frame that will not support it.",
+    commercialHeading: "When a shop or workplace locks you out",
     commercial:
-      "Paddington's commercial strip is mostly smaller shopfronts, hospitality venues and offices mixed in with housing. We help with lockouts after close, restricted-key systems, extra staff access and lock changes when a tenant moves on. For anything urgent, calling is faster than the quote form.",
-    nearbyHeading: "Other inner-west suburbs nearby",
+      "Paddington's shops and small offices are mixed in with housing, so a locksmith visit is to that address rather than to a big centre. We cover after-hours lockouts, rekeying when a tenant moves on, and replacement of locks on doors that are used all day. Call if you cannot get in. Write to us if the work can be booked.",
+    nearbyHeading: "Neighbours of Paddington on our run",
     nearbyIntro:
-      "From Paddington we're also across the neighbouring inner-west and inner-north suburbs listed on the site. If you're just over the boundary, we can usually still help.",
+      "Our base is in Red Hill, which shares a boundary with Paddington. The places below are already listed as service areas. Ashgrove has its own page. The others are suburbs we travel to.",
     nearby: [
       "Red Hill",
-      "Bardon",
       "Milton",
       "Petrie Terrace",
+      "Bardon",
       "Auchenflower",
-      "Kelvin Grove",
-      "Ashgrove"
+      "Ashgrove",
+      "Kelvin Grove"
     ],
-    ctaHeading: "Need a locksmith in Paddington now?",
-    ctaBody: `For a lockout, calling ${PHONE_DISPLAY} is the quickest way through. We'll give you an arrival time for your street and the price before we start. For planned work — rekeys, replacements or smart locks — send a quote request and we'll come back to you.`
+    faqs: [
+      {
+        q: "Is there a locksmith office in Paddington?",
+        a: "No. We are a mobile locksmith. The business is based in Red Hill and we come to the Paddington address. There is nowhere in Paddington to drop the keys in."
+      },
+      {
+        q: "Should I call or use the contact form?",
+        a: "Call if you are locked out or the job cannot wait. The form is for rekeying, repairs, lock replacement and smart lock upgrades that can be scheduled. Calling is the quicker path for anything urgent."
+      },
+      {
+        q: "Can the locks be rekeyed instead of replaced?",
+        a: "Yes, when the lock is still in good order. Rekeying keeps that lock and stops the old keys from working. If it is worn or damaged, we explain that and quote a replacement before we start."
+      },
+      {
+        q: "What does a call-out cost?",
+        a: "Call-outs start from $35. The rest depends on the job and the hardware. We quote the price up front, and the work waits until you agree."
+      },
+      {
+        q: "How soon can you get to Paddington?",
+        a: "Inner-Brisbane trips are typically 15–20 minutes. Traffic and work already booked can change that, so we give you an arrival time for your street when you call, rather than a fixed promise."
+      },
+      {
+        q: "Do you come out at night and on weekends?",
+        a: "Yes. Emergency locksmith help is available 24/7, including nights, weekends and public holidays."
+      }
+    ],
+    ctaHeading: "Need a locksmith in Paddington?",
+    ctaBody: `Call now on ${PHONE_DISPLAY} when you are locked out or a lock has failed. To contact us about rekeying, a repair or a planned lock replacement, send the form and keep Paddington in the suburb field.`
   },
   ashgrove: {
     slug: "ashgrove",
