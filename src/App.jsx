@@ -6,6 +6,7 @@ import PageNotFound from './lib/PageNotFound';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import SuburbLocksmithPage from './pages/SuburbLocksmithPage';
+import { suburbs } from './data/suburbs';
 
 function App() {
   return (
@@ -14,8 +15,9 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/locksmith-paddington" element={<SuburbLocksmithPage />} />
-          <Route path="/locksmith-ashgrove" element={<SuburbLocksmithPage />} />
+          {Object.keys(suburbs).map((slug) => (
+            <Route key={slug} path={`/locksmith-${slug}`} element={<SuburbLocksmithPage />} />
+          ))}
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Router>

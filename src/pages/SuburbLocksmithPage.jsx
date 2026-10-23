@@ -395,7 +395,7 @@ export default function SuburbLocksmithPage() {
           </div>
         </section>
 
-        <ContactSection defaultLocation={suburb.name} />
+        <ContactSection key={suburb.slug} defaultLocation={suburb.name} />
       </main>
       <SuburbPageFooter />
       <MobileCallBar />
