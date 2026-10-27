@@ -1,6 +1,18 @@
-// Real customer reviews from the Red Hill Security & Locksmiths Google Business Profile.
+// Real customer reviews from the Red Hill Security & Locksmith Google Business Profile.
 // Owner replies are intentionally not included.
+export const GOOGLE_REVIEW_COUNT = 91;
+
 export const REVIEWS = [
+  {
+    name: "Lisa Burgess",
+    quote:
+      "Excellent service! Attended with such short notice for an urgent job! Isaac was an absolute pleasure to communicate with and very difficult job. That another locksmith declined as too difficult. Thank you again!"
+  },
+  {
+    name: "Mandy Olivier",
+    quote:
+      "Fantastic service. Friendly, incredibly helpful and accommodating coming out after hours. Highly recommend"
+  },
   {
     name: "Tom Russell",
     quote:
@@ -57,7 +69,7 @@ export const REVIEWS = [
   {
     name: "Shweta Kapoor",
     quote:
-      "Fantastic experience with Isaac — we have used his service 3 times now and all times it has been super fast response, smooth resolution and very economic pricing."
+      "Fantastic experience with Isaac. We have used his service 3 times now and all times it has been super fast response, smooth resolution and very economic pricing. 100% recommended to anyone."
   },
   {
     name: "Andrew Howard",
@@ -135,7 +147,7 @@ export const REVIEWS = [
   {
     name: "Mojk Loko",
     quote:
-      "The technician arrived about 15 mins after our phone call and it took him 2 minutes to let us in! Reliable, professional and local."
+      "The technician arrived about 15 mins after our phone call and it took him 2 minutes to let us in! Reliable, professional and local. Would definitely use again."
   },
   { name: "Riyak Abdi", quote: "Got the job done in under 5 mins. Amazing service!" },
   {

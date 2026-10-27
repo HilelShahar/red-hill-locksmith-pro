@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import { Star, ExternalLink, ChevronLeft, ChevronRight, Quote } from "lucide-react";
-import { REVIEWS } from "./reviewsData";
+import { GOOGLE_REVIEW_COUNT, REVIEWS } from "./reviewsData";
 
 const GOOGLE_LINK =
-  "https://www.google.com/search?q=Red+Hill+Security+%26+Locksmith+Brisbane";
+  "https://www.google.com/maps/place/Red+Hill+Security+%26+Locksmith/@-27.4505632,153.0021318,15z/data=!4m6!3m5!1s0x44a671b44a0dd4d1:0x75b6f3ce4de29a63!8m2!3d-27.4505632!4d153.0021318!16s%2Fg%2F11nr54yxjf";
 
 export default function Reviews() {
   const trackRef = useRef(null);
@@ -31,7 +31,6 @@ export default function Reviews() {
     return () => track.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Auto-advance the carousel, pausing while the mouse hovers a review
   useEffect(() => {
     const id = setInterval(() => {
       if (pausedRef.current) return;
@@ -63,7 +62,7 @@ export default function Reviews() {
                 ))}
               </span>
               <span className="text-sm font-semibold text-foreground">5.0 / 5</span>
-              <span className="text-sm text-muted-foreground">· from 50 Google reviews</span>
+              <span className="text-sm text-muted-foreground">· from {GOOGLE_REVIEW_COUNT} Google reviews</span>
             </div>
           </div>
           <div className="flex items-center gap-3">
@@ -100,27 +99,27 @@ export default function Reviews() {
           onTouchStart={() => (pausedRef.current = true)}
           onTouchEnd={() => (pausedRef.current = false)}
         >
-          {REVIEWS.map((r, i) => (
+          {REVIEWS.map((review, i) => (
             <figure
-              key={i}
+              key={`${review.name}-${review.quote.slice(0, 24)}`}
               aria-hidden={i !== activeIndex}
               className="relative flex w-[86%] flex-none snap-center flex-col rounded-xl border border-border bg-background p-6 shadow-sm sm:w-[calc(50%-10px)] sm:p-8 lg:w-[calc(33.333%-14px)]"
             >
               <Quote className="absolute right-6 top-6 h-8 w-8 text-primary/15" aria-hidden="true" />
               <div className="flex gap-0.5 text-primary" aria-label="5 out of 5 stars">
-                {Array.from({ length: 5 }).map((_, s) => (
-                  <Star key={s} className="h-4 w-4 fill-current" aria-hidden="true" />
+                {Array.from({ length: 5 }).map((_, star) => (
+                  <Star key={star} className="h-4 w-4 fill-current" aria-hidden="true" />
                 ))}
               </div>
               <blockquote className="mt-4 flex-1 text-[15px] font-medium leading-relaxed text-foreground/90 sm:text-base">
-                "{r.quote}"
+                "{review.quote}"
               </blockquote>
               <figcaption className="mt-5 flex items-center gap-3 border-t border-border pt-4">
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary" aria-hidden="true">
-                  {r.name.charAt(0)}
+                  {review.name.charAt(0)}
                 </span>
                 <span className="text-sm font-semibold text-foreground">
-                  {r.name}
+                  {review.name}
                   <span className="block font-normal text-muted-foreground">Google review</span>
                 </span>
               </figcaption>
@@ -134,9 +133,6 @@ export default function Reviews() {
             disabled={prevDisabled}
             label="Previous review"
           />
-          <span className="text-sm font-medium tabular-nums text-muted-foreground" aria-live="polite">
-            {activeIndex + 1} / {REVIEWS.length}
-          </span>
           <CarouselButton
             onClick={() => scrollToIndex(activeIndex + 1)}
             disabled={nextDisabled}
