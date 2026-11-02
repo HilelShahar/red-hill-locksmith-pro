@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import { Star, ExternalLink, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { GOOGLE_REVIEW_COUNT, REVIEWS } from "./reviewsData";
+import { GOOGLE_PROFILE_URL } from "@/lib/site";
 
-const GOOGLE_LINK =
-  "https://www.google.com/maps/place/Red+Hill+Security+%26+Locksmith/@-27.4505632,153.0021318,15z/data=!4m6!3m5!1s0x44a671b44a0dd4d1:0x75b6f3ce4de29a63!8m2!3d-27.4505632!4d153.0021318!16s%2Fg%2F11nr54yxjf";
+const GOOGLE_LINK = GOOGLE_PROFILE_URL;
 
 export default function Reviews() {
   const trackRef = useRef(null);

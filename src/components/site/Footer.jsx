@@ -1,15 +1,24 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import { KeyRound, Phone, Mail, MapPin } from "lucide-react";
 import { Image } from "@/components/ui/image";
+import { ABN, EMAIL, PHONE_DISPLAY, PHONE_TEL } from "@/lib/site";
 
 const SPAAL_LOGO = "/images/spaal.png";
-
-const PHONE_DISPLAY = "0416 807 444";
-const PHONE_TEL = "+61416807444";
-const EMAIL = "info@redhillsecuritylocksmith.com.au";
+const TECHED_LOGO = "/images/teched-certified.png";
 const ADDRESS = "Red Hill QLD 4059";
-const ABN = "12 693 068 457";
 
 export default function Footer() {
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const onHome = pathname === "/";
+
+  const handleNav = (href) => {
+    if (onHome) {
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate(`/${href}`);
+    }
+  };
   return (
     <footer className="bg-foreground text-white/80">
       <div className="mx-auto max-w-6xl px-4 py-12">
@@ -30,21 +39,36 @@ export default function Footer() {
               Mobile locksmith servicing Red Hill, inner Brisbane and
               surrounding suburbs. Available 24/7.
             </p>
-            <div className="mt-5 flex items-center gap-3">
-              <div className="h-14 w-14 shrink-0">
-                <Image
-                  src={SPAAL_LOGO}
-                  alt="SPAAL – Security Providers Association of Australia Ltd member"
-                  className="h-full w-full object-contain"
-                  fittingType="fit"
-                />
+            <div className="mt-5 space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="h-14 w-14 shrink-0">
+                  <Image
+                    src={SPAAL_LOGO}
+                    alt="SPAAL – Security Providers Association of Australia Ltd member"
+                    className="h-full w-full object-contain"
+                    fittingType="fit"
+                  />
+                </div>
+                <p className="text-xs leading-snug text-white/60">
+                  Member — SPAAL
+                  <span className="block text-[11px] text-white/40">
+                    Security Providers Association of Australia Ltd
+                  </span>
+                </p>
               </div>
-              <p className="text-xs leading-snug text-white/60">
-                Member — SPAAL
-                <span className="block text-[11px] text-white/40">
-                  Security Providers Association of Australia Ltd
-                </span>
-              </p>
+              <div className="flex items-center gap-3">
+                <div className="h-14 w-14 shrink-0">
+                  <Image
+                    src={TECHED_LOGO}
+                    alt="TECHED Certified – Smart Lock Installation & Commissioning Certification Training"
+                    className="h-full w-full object-contain"
+                    fittingType="fit"
+                  />
+                </div>
+                <p className="text-xs leading-snug text-white/60">
+                  Smart Lock Installation &amp; Commissioning Certification Training
+                </p>
+              </div>
             </div>
           </div>
 
@@ -83,7 +107,7 @@ export default function Footer() {
               ].map((l) => (
                 <li key={l.href}>
                   <button
-                    onClick={() => document.querySelector(l.href)?.scrollIntoView({ behavior: "smooth" })}
+                    onClick={() => handleNav(l.href)}
                     className="hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
                   >
                     {l.label}

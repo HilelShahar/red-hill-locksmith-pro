@@ -1,4 +1,4 @@
-import Header from "@/components/site/Header";
+import SiteLayout from "@/components/site/SiteLayout";
 import Hero from "@/components/site/Hero";
 import TrustBar from "@/components/site/TrustBar";
 import Brands from "@/components/site/Brands";
@@ -8,30 +8,31 @@ import ServiceAreas from "@/components/site/ServiceAreas";
 import Reviews from "@/components/site/Reviews";
 import FAQ from "@/components/site/FAQ";
 import ContactSection from "@/components/site/ContactSection";
-import Footer from "@/components/site/Footer";
-import MobileCallBar from "@/components/site/MobileCallBar";
-
-const HERO_IMAGE = "/images/hero.jpg";
+import PageSeo from "@/components/site/PageSeo";
+import { HERO_IMAGE } from "@/lib/site";
+import { getPageMeta } from "@/lib/seo";
+import { useMemo } from "react";
 
 export default function Home() {
+  const meta = useMemo(() => getPageMeta("/"), []);
+
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main>
-        <Hero heroImage={HERO_IMAGE} />
-        <TrustBar />
-        <Services />
-        <Brands />
-        <Process />
-        <ServiceAreas />
-        <Reviews />
-        <FAQ />
-        <ContactSection />
-      </main>
-      <Footer />
-      <MobileCallBar />
-      {/* Spacer so the fixed mobile bar doesn't cover footer content */}
-      <div className="h-14 sm:hidden" aria-hidden="true" />
-    </div>
+    <SiteLayout>
+      <PageSeo
+        title={meta.title}
+        description={meta.description}
+        path={meta.path}
+        jsonLd={meta.jsonLd}
+      />
+      <Hero heroImage={HERO_IMAGE} />
+      <TrustBar />
+      <Services />
+      <Brands />
+      <Process />
+      <ServiceAreas />
+      <Reviews />
+      <FAQ />
+      <ContactSection />
+    </SiteLayout>
   );
 }

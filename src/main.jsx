@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom/client'
 import App from '@/App.jsx'
 import '@/index.css'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <App />
-)
+const rootEl = document.getElementById('root')
+const app = <App />
+
+if (rootEl.hasChildNodes()) {
+  ReactDOM.hydrateRoot(rootEl, app)
+} else {
+  ReactDOM.createRoot(rootEl).render(app)
+}

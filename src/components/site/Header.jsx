@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Phone, Menu, X, KeyRound } from "lucide-react";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/site";
 
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
@@ -10,16 +12,29 @@ const NAV_LINKS = [
   { label: "Contact", href: "#contact" }
 ];
 
-const PHONE_DISPLAY = "0416 807 444";
-const PHONE_TEL = "+61416807444";
-
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const onHome = pathname === "/";
+
+  const goHome = (e) => {
+    e.preventDefault();
+    setOpen(false);
+    if (onHome) {
+      document.getElementById("top")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      navigate("/");
+    }
+  };
 
   const handleNav = (href) => {
     setOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (onHome) {
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      navigate(`/${href}`);
+    }
   };
 
   return (
@@ -28,8 +43,8 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between gap-4">
           {/* Logo */}
           <a
-            href="#top"
-            onClick={(e) => { e.preventDefault(); handleNav("#top"); }}
+            href="/"
+            onClick={goHome}
             className="flex items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
             aria-label="Red Hill Security & Locksmith — home"
           >

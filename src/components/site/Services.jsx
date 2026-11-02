@@ -1,6 +1,6 @@
 import { Lock, KeyRound, Smartphone, Archive, ArrowRight } from "lucide-react";
 
-const SERVICES = [
+export const SERVICES = [
   {
     id: "emergency-lockout",
     icon: Lock,

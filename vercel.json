@@ -1,5 +1,23 @@
 {
+  "redirects": [
+    { "source": "/(.*)/", "destination": "/$1", "permanent": true }
+  ],
   "rewrites": [
-    { "source": "/((?!api/).*)", "destination": "/index.html" }
+    { "source": "/locksmith-ashgrove", "destination": "/locksmith-ashgrove/index.html" },
+    { "source": "/locksmith-auchenflower", "destination": "/locksmith-auchenflower/index.html" },
+    { "source": "/locksmith-bardon", "destination": "/locksmith-bardon/index.html" },
+    { "source": "/locksmith-bowen-hills", "destination": "/locksmith-bowen-hills/index.html" },
+    { "source": "/locksmith-brisbane-city", "destination": "/locksmith-brisbane-city/index.html" },
+    { "source": "/locksmith-fortitude-valley", "destination": "/locksmith-fortitude-valley/index.html" },
+    { "source": "/locksmith-herston", "destination": "/locksmith-herston/index.html" },
+    { "source": "/locksmith-kelvin-grove", "destination": "/locksmith-kelvin-grove/index.html" },
+    { "source": "/locksmith-milton", "destination": "/locksmith-milton/index.html" },
+    { "source": "/locksmith-newmarket", "destination": "/locksmith-newmarket/index.html" },
+    { "source": "/locksmith-paddington", "destination": "/locksmith-paddington/index.html" },
+    { "source": "/locksmith-petrie-terrace", "destination": "/locksmith-petrie-terrace/index.html" },
+    { "source": "/locksmith-red-hill", "destination": "/locksmith-red-hill/index.html" },
+    { "source": "/locksmith-south-brisbane", "destination": "/locksmith-south-brisbane/index.html" },
+    { "source": "/locksmith-spring-hill", "destination": "/locksmith-spring-hill/index.html" },
+    { "source": "/locksmith-west-end", "destination": "/locksmith-west-end/index.html" }
   ]
 }

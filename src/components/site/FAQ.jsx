@@ -1,32 +1,6 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-
-const FAQS = [
-  {
-    q: "What areas do you cover?",
-    a: "We're based in Red Hill and cover the inner north and inner west, the CBD and surrounding suburbs — including Paddington, Ashgrove, Kelvin Grove, Milton and more. If your suburb isn't listed, give us a call and chances are we can still help."
-  },
-  {
-    q: "How quickly can you get here?",
-    a: "We typically reach inner-Brisbane addresses in 15–20 minutes. Arrival times can vary with traffic and current demand, so we'll give you an honest estimate when you call."
-  },
-  {
-    q: "How much do call-outs cost?",
-    a: "Call-outs start from $35. We quote honest, up-front pricing before we start, so there are no hidden surprises. The final price depends on the job and the hardware involved."
-  },
-  {
-    q: "Do I need to come to you?",
-    a: "No — we're a mobile service and come to you. Our Red Hill address is a base of operations, not open to the public."
-  },
-  {
-    q: "Can you open my lock without damaging it?",
-    a: "Wherever possible we use non-destructive entry techniques so your existing locks keep working afterwards. If a lock does need to be replaced, we'll explain why before proceeding."
-  },
-  {
-    q: "What hours are you available?",
-    a: "We're available 24/7 — day, night, weekends and public holidays."
-  }
-];
+import { HOME_FAQS as FAQS } from "@/lib/seo";
 
 function FAQItem({ faq, isOpen, onToggle }) {
   return (

@@ -1,3 +1,4 @@
+import fs from "node:fs";
 import react from "@vitejs/plugin-react";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -14,7 +15,27 @@ function quoteApi() {
   return {
     name: "quote-api",
     configureServer: attach,
-    configurePreviewServer: attach,
+    configurePreviewServer(server) {
+      attach(server);
+      server.middlewares.use((req, res, next) => {
+        const url = req.url?.split("?")[0];
+        if (!url || url.startsWith("/api/") || path.extname(url)) return next();
+        const page = url === "/"
+          ? path.join(root, "dist", "index.html")
+          : path.join(root, "dist", url, "index.html");
+        if (fs.existsSync(page)) {
+          res.statusCode = 200;
+          res.setHeader("Content-Type", "text/html; charset=utf-8");
+          fs.createReadStream(page).pipe(res);
+          return;
+        }
+        const notFound = path.join(root, "dist", "404.html");
+        if (!fs.existsSync(notFound)) return next();
+        res.statusCode = 404;
+        res.setHeader("Content-Type", "text/html; charset=utf-8");
+        fs.createReadStream(notFound).pipe(res);
+      });
+    },
   };
 }
 

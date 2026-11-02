@@ -22,7 +22,8 @@ import ContactSection from "@/components/site/ContactSection";
 import MobileCallBar from "@/components/site/MobileCallBar";
 import PageSeo from "@/components/site/PageSeo";
 import PageNotFound from "@/lib/PageNotFound";
-import { EMAIL, HERO_IMAGE, PHONE_DISPLAY, PHONE_TEL, SITE_URL } from "@/lib/site";
+import { getPageMeta } from "@/lib/seo";
+import { HERO_IMAGE, PHONE_DISPLAY, PHONE_TEL } from "@/lib/site";
 import { SUBURB_NAME_BY_SLUG, SUBURB_PAGES } from "@/data/suburbs";
 
 const SERVICE_ICONS = {
@@ -35,124 +36,24 @@ const SERVICE_ICONS = {
   safes: Archive,
 };
 
-function buildJsonLd(suburb) {
-  const url = `${SITE_URL}/locksmith-${suburb.slug}`;
-  const data = [
-    {
-      "@context": "https://schema.org",
-      "@type": "Locksmith",
-      name: "Red Hill Security & Locksmith",
-      url,
-      telephone: PHONE_TEL,
-      email: EMAIL,
-      image: `${SITE_URL}${HERO_IMAGE}`,
-      priceRange: "$$",
-      areaServed: {
-        "@type": "Place",
-        name: `${suburb.name}, QLD ${suburb.postcode}`,
-      },
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Red Hill",
-        addressRegion: "QLD",
-        postalCode: "4059",
-        addressCountry: "AU",
-      },
-      openingHoursSpecification: {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday",
-        ],
-        opens: "00:00",
-        closes: "23:59",
-      },
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      name: `Mobile locksmith in ${suburb.name}`,
-      serviceType: "Locksmith",
-      url,
-      areaServed: {
-        "@type": "Place",
-        name: `${suburb.name}, QLD ${suburb.postcode}`,
-      },
-      provider: {
-        "@type": "Locksmith",
-        name: "Red Hill Security & Locksmith",
-        telephone: PHONE_TEL,
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Red Hill",
-          addressRegion: "QLD",
-          postalCode: "4059",
-          addressCountry: "AU",
-        },
-      },
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: SITE_URL,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: suburb.h1,
-          item: url,
-        },
-      ],
-    },
-  ];
-
-  if (suburb.faqs?.length) {
-    data.push({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: suburb.faqs.map((faq) => ({
-        "@type": "Question",
-        name: faq.q,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: faq.a,
-        },
-      })),
-    });
-  }
-
-  return data;
-}
-
 export default function SuburbLocksmithPage() {
   const { pathname } = useLocation();
   const slug = pathname.replace(/^\/locksmith-/, "").replace(/\/$/, "");
   const suburb = SUBURB_PAGES[slug];
-  const jsonLd = useMemo(() => (suburb ? buildJsonLd(suburb) : []), [suburb]);
+  const path = `/locksmith-${slug}`;
+  const meta = useMemo(() => getPageMeta(path), [path]);
 
   if (!suburb) {
     return <PageNotFound />;
   }
 
-  const path = `/locksmith-${suburb.slug}`;
-
   return (
     <div className="min-h-screen bg-background">
       <PageSeo
-        title={suburb.title}
-        description={suburb.description}
-        path={path}
-        jsonLd={jsonLd}
+        title={meta.title}
+        description={meta.description}
+        path={meta.path}
+        jsonLd={meta.jsonLd}
       />
       <SuburbPageHeader />
       <main>
