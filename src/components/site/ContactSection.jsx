@@ -1,5 +1,6 @@
-import { useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Phone, Mail, BadgeCheck, Send, CheckCircle2, AlertCircle, ImagePlus, X } from "lucide-react";
+import { emailError, phoneError, sanitizePhoneInput } from "@/lib/quoteFields";
 
 const PHONE_DISPLAY = "0416 807 444";
 const PHONE_TEL = "+61416807444";
@@ -37,6 +38,9 @@ export default function ContactSection({ defaultLocation = "" }) {
   });
   const [errors, setErrors] = useState(/** @type {Record<string, string | undefined>} */ ({}));
   const [status, setStatus] = useState("idle"); // idle | submitting | success | error
+  const [formError, setFormError] = useState("");
+  const [submittedName, setSubmittedName] = useState("");
+  const [quoteExtra, setQuoteExtra] = useState("");
   const [photo, setPhoto] = useState(null); // { name, type, dataUrl }
   const [photoError, setPhotoError] = useState(null);
   const fileInputRef = useRef(null);
@@ -44,6 +48,12 @@ export default function ContactSection({ defaultLocation = "" }) {
   const update = (field) => (e) => {
     setForm({ ...form, [field]: e.target.value });
     if (errors[field]) setErrors({ ...errors, [field]: undefined });
+  };
+
+  const updatePhone = (e) => {
+    const phone = sanitizePhoneInput(e.target.value);
+    setForm({ ...form, phone });
+    if (errors.phone) setErrors({ ...errors, phone: phoneError(phone) || undefined });
   };
 
   const handleFileChange = (e) => {
@@ -80,8 +90,12 @@ export default function ContactSection({ defaultLocation = "" }) {
     /** @type {Record<string, string | undefined>} */
     const errs = {};
     if (!form.name.trim()) errs.name = "Please enter your name.";
-    if (!form.phone.trim()) errs.phone = "Please enter a phone number.";
+    const phoneProblem = phoneError(form.phone);
+    if (phoneProblem) errs.phone = phoneProblem;
+    const emailProblem = emailError(form.email);
+    if (emailProblem) errs.email = emailProblem;
     if (!form.service) errs.service = "Please select a service.";
+    if (form.message.length > 2000) errs.message = "Please keep the message under 2000 characters.";
     setErrors(errs);
     return Object.keys(errs).length === 0;
   };
@@ -90,22 +104,44 @@ export default function ContactSection({ defaultLocation = "" }) {
     e.preventDefault();
     if (!validate()) return;
     setStatus("submitting");
+    setFormError("");
     try {
       const response = await fetch("/api/quotes", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...form,
+          quoteExtra,
           photo: photo ? { name: photo.name, type: photo.type, dataUrl: photo.dataUrl } : null
         })
       });
-      if (!response.ok) throw new Error("Quote request failed");
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        if (data.field && data.error) {
+          setErrors({ [data.field]: data.error });
+          setStatus("idle");
+          return;
+        }
+        setFormError(data.error || "");
+        setStatus(response.status === 429 ? "limited" : "error");
+        return;
+      }
+      setSubmittedName(form.name.trim());
       setStatus("success");
-      setForm({ name: "", phone: "", email: "", company: "", service: "", location: "", message: "" });
+      setForm({ name: "", phone: "", email: "", company: "", service: "", location: defaultLocation, message: "" });
+      setQuoteExtra("");
       removePhoto();
     } catch (err) {
+      setFormError("");
       setStatus("error");
     }
+  };
+
+  const sendAnother = () => {
+    setStatus("idle");
+    setFormError("");
+    setErrors({});
+    setSubmittedName("");
   };
 
   return (
@@ -168,33 +204,24 @@ export default function ContactSection({ defaultLocation = "" }) {
 
           {/* Right: form */}
           <div className="rounded-xl border border-border bg-background p-6 sm:p-8">
+            {status === "success" ? (
+              <QuoteSent name={submittedName} onAnother={sendAnother} />
+            ) : (
+            <>
             <h3 className="text-lg font-semibold text-foreground">Get a free quote</h3>
             <p className="mt-1 text-sm text-muted-foreground">
               Tell us what you need and we'll come back with honest, up-front pricing.
             </p>
 
-            {status === "success" && (
-              <div
-                role="status"
-                className="mt-5 flex items-start gap-3 rounded-lg border border-green-200 bg-green-50 p-4 text-sm text-green-800"
-              >
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-green-600" aria-hidden="true" />
-                <div>
-                  <p className="font-semibold">Thanks — your request has been sent.</p>
-                  <p className="mt-0.5">We'll be in touch shortly. For anything urgent, call {PHONE_DISPLAY}.</p>
-                </div>
-              </div>
-            )}
-
-            {status === "error" && (
+            {(status === "error" || status === "limited") && (
               <div
                 role="alert"
                 className="mt-5 flex items-start gap-3 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-800"
               >
                 <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-600" aria-hidden="true" />
                 <div>
-                  <p className="font-semibold">Something went wrong.</p>
-                  <p className="mt-0.5">Please try again, or call {PHONE_DISPLAY} and we'll help right away.</p>
+                  <p className="font-semibold">{status === "limited" ? "Please wait before sending another request." : "Something went wrong."}</p>
+                  <p className="mt-0.5">{formError || `Please try again, or call ${PHONE_DISPLAY} and we'll help right away.`}</p>
                 </div>
               </div>
             )}
@@ -215,10 +242,20 @@ export default function ContactSection({ defaultLocation = "" }) {
                   id="phone"
                   required
                   type="tel"
+                  inputMode="tel"
                   value={form.phone}
-                  onChange={update("phone")}
+                  onChange={updatePhone}
+                  onBlur={() => {
+                    if (!form.phone.trim()) return;
+                    const problem = phoneError(form.phone);
+                    setErrors((current) => ({ ...current, phone: problem || undefined }));
+                  }}
                   error={errors.phone}
                   autoComplete="tel"
+                  autoCorrect="off"
+                  spellCheck={false}
+                  maxLength={24}
+                  hint="Digits only. Spaces and + are fine."
                 />
                 <Field
                   label="Email (optional)"
@@ -266,8 +303,12 @@ export default function ContactSection({ defaultLocation = "" }) {
                   rows={3}
                   value={form.message}
                   onChange={update("message")}
+                  maxLength={2000}
                   className="mt-1.5 block w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring"
                 />
+                {errors.message && (
+                  <p role="alert" className="mt-1 text-xs font-medium text-red-600">{errors.message}</p>
+                )}
               </div>
 
               <div>
@@ -319,6 +360,19 @@ export default function ContactSection({ defaultLocation = "" }) {
                 </p>
               </div>
 
+              <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+                <label htmlFor="quote-extra">Leave this field blank</label>
+                <input
+                  id="quote-extra"
+                  name="quote_extra"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={quoteExtra}
+                  onChange={(e) => setQuoteExtra(e.target.value)}
+                />
+              </div>
+
               <button
                 type="submit"
                 disabled={status === "submitting"}
@@ -335,6 +389,8 @@ export default function ContactSection({ defaultLocation = "" }) {
                 .
               </p>
             </form>
+            </>
+            )}
           </div>
         </div>
       </div>
@@ -342,7 +398,63 @@ export default function ContactSection({ defaultLocation = "" }) {
   );
 }
 
-function Field({ label, id, required = false, type = "text", value, onChange, error = undefined, autoComplete = undefined }) {
+function QuoteSent({ name, onAnother }) {
+  const headingRef = useRef(null);
+
+  useEffect(() => {
+    headingRef.current?.focus();
+  }, []);
+
+  return (
+    <div className="flex flex-col items-center px-2 py-8 text-center motion-safe:animate-in motion-safe:fade-in motion-safe:zoom-in-95 motion-safe:duration-500">
+      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-green-600 motion-safe:animate-in motion-safe:zoom-in-50 motion-safe:duration-500">
+        <CheckCircle2 className="h-9 w-9" aria-hidden="true" />
+      </div>
+      <h3
+        ref={headingRef}
+        tabIndex={-1}
+        className="mt-5 text-xl font-semibold text-foreground outline-none"
+      >
+        Quote request sent
+      </h3>
+      <p role="status" className="mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
+        Thanks{name ? `, ${name}` : ""}. We've got your request and will be in touch shortly with an up-front price.
+      </p>
+      <a
+        href={`tel:${PHONE_TEL}`}
+        className="mt-6 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+      >
+        <Phone className="h-4 w-4" aria-hidden="true" />
+        Call {PHONE_DISPLAY} if it's urgent
+      </a>
+      <button
+        type="button"
+        onClick={onAnother}
+        className="mt-4 text-sm font-semibold text-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+      >
+        Send another request
+      </button>
+    </div>
+  );
+}
+
+function Field({
+  label,
+  id,
+  required = false,
+  type = "text",
+  value,
+  onChange,
+  onBlur = undefined,
+  error = undefined,
+  autoComplete = undefined,
+  inputMode = undefined,
+  autoCorrect = undefined,
+  spellCheck = undefined,
+  maxLength = undefined,
+  hint = undefined,
+}) {
+  const describedBy = [hint ? `${id}-hint` : "", error ? `${id}-error` : ""].filter(Boolean).join(" ") || undefined;
   return (
     <div>
       <label htmlFor={id} className="block text-sm font-medium text-foreground">
@@ -354,14 +466,24 @@ function Field({ label, id, required = false, type = "text", value, onChange, er
         type={type}
         value={value}
         onChange={onChange}
+        onBlur={onBlur}
         autoComplete={autoComplete}
+        inputMode={inputMode}
+        autoCorrect={autoCorrect}
+        spellCheck={spellCheck}
+        maxLength={maxLength}
         aria-required={required}
         aria-invalid={!!error}
-        aria-describedby={error ? `${id}-error` : undefined}
+        aria-describedby={describedBy}
         className={`mt-1.5 block w-full rounded-md border bg-background px-3 py-2.5 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring ${
           error ? "border-red-400 focus:border-red-500" : "border-input focus:border-primary"
         }`}
       />
+      {hint && (
+        <p id={`${id}-hint`} className="mt-1 text-xs text-muted-foreground">
+          {hint}
+        </p>
+      )}
       {error && (
         <p id={`${id}-error`} className="mt-1 text-xs font-medium text-red-600">
           {error}

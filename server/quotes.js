@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { clientIp, quoteFieldError, takeQuoteSlot } from "./quotePolicy.js";
 
 const MAX_BODY_BYTES = 8 * 1024 * 1024;
 const ALLOWED_PHOTO_TYPES = {
@@ -30,8 +31,9 @@ function readBody(req) {
   });
 }
 
-function sendJson(res, statusCode, payload) {
+function sendJson(res, statusCode, payload, headers = {}) {
   res.statusCode = statusCode;
+  for (const [key, value] of Object.entries(headers)) res.setHeader(key, value);
   res.setHeader("Content-Type", "application/json");
   res.end(JSON.stringify(payload));
 }
@@ -74,14 +76,26 @@ export function attachQuoteApi(middlewares, rootDir) {
     try {
       const raw = await readBody(req);
       const body = JSON.parse(raw || "{}");
+      if (text(body.quoteExtra)) {
+        sendJson(res, 200, { ok: true });
+        return;
+      }
+
+      const fieldError = quoteFieldError(body);
+      if (fieldError) {
+        sendJson(res, 400, fieldError);
+        return;
+      }
+
+      const slot = takeQuoteSlot(clientIp(req));
+      if (!slot.ok) {
+        sendJson(res, 429, { error: slot.error }, { "Retry-After": String(slot.retryAfter) });
+        return;
+      }
+
       const name = text(body.name);
       const phone = text(body.phone);
       const service = text(body.service);
-
-      if (!name || !phone || !service) {
-        sendJson(res, 400, { error: "Name, phone and service are required." });
-        return;
-      }
 
       const id = randomUUID();
       const dir = path.join(rootDir, "data", "quotes");

@@ -1,3 +1,5 @@
+import { clientIp, quoteFieldError, takeQuoteSlot } from "../server/quotePolicy.js";
+
 const BUSINESS_EMAIL = "info@redhillsecuritylocksmith.com.au";
 const ALLOWED_PHOTO_TYPES = {
   "image/jpeg": "jpg",
@@ -41,6 +43,24 @@ export default async function handler(req, res) {
 
   try {
     const body = typeof req.body === "string" ? JSON.parse(req.body || "{}") : req.body || {};
+    if (text(body.quoteExtra)) {
+      res.status(200).json({ ok: true });
+      return;
+    }
+
+    const fieldError = quoteFieldError(body);
+    if (fieldError) {
+      res.status(400).json(fieldError);
+      return;
+    }
+
+    const slot = takeQuoteSlot(clientIp(req));
+    if (!slot.ok) {
+      res.setHeader("Retry-After", String(slot.retryAfter));
+      res.status(429).json({ error: slot.error });
+      return;
+    }
+
     const name = text(body.name);
     const phone = text(body.phone);
     const service = text(body.service);
@@ -48,11 +68,6 @@ export default async function handler(req, res) {
     const company = text(body.company);
     const location = text(body.location);
     const message = text(body.message);
-
-    if (!name || !phone || !service) {
-      res.status(400).json({ error: "Name, phone and service are required." });
-      return;
-    }
 
     const apiKey = process.env.RESEND_API_KEY?.trim();
     if (!apiKey) {
