@@ -25,6 +25,7 @@ import PageSeo from "@/components/site/PageSeo";
 import PageNotFound from "@/lib/PageNotFound";
 import { getPageMeta } from "@/lib/seo";
 import { HERO_IMAGE, PHONE_DISPLAY, PHONE_TEL } from "@/lib/site";
+import { GOOGLE_REVIEW_COUNT } from "@/components/site/reviewsData";
 import { SUBURB_NAME_BY_SLUG, SUBURB_PAGES } from "@/data/suburbs";
 
 const SERVICE_ICONS = {
@@ -107,7 +108,7 @@ export default function SuburbLocksmithPage() {
                       <Star key={i} className="h-4 w-4 fill-current" />
                     ))}
                   </span>
-                  <span>5.0 on Google</span>
+                  <span>5.0 · {GOOGLE_REVIEW_COUNT} reviews</span>
                 </li>
                 <li className="inline-flex items-center gap-2">
                   <ShieldCheck className="h-4 w-4 text-primary-foreground/90" aria-hidden="true" />
