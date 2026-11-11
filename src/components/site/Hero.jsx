@@ -1,4 +1,4 @@
-import { Phone, Clock, MapPin, ShieldCheck } from "lucide-react";
+import { Phone, Clock, MapPin, ShieldCheck, Star } from "lucide-react";
 import { Image } from "@/components/ui/image";
 
 const PHONE_DISPLAY = "0416 807 444";
@@ -56,6 +56,14 @@ export default function Hero({ heroImage }) {
 
           {/* Quick trust badges */}
           <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-white/80">
+            <li className="inline-flex items-center gap-2">
+              <span className="flex gap-0.5 text-primary" aria-hidden="true">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-current" />
+                ))}
+              </span>
+              <span>5.0 on Google</span>
+            </li>
             <li className="inline-flex items-center gap-2">
               <ShieldCheck className="h-4 w-4 text-primary-foreground/90" aria-hidden="true" />
               Experienced &amp; licensed

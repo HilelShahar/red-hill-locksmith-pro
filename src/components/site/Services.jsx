@@ -1,4 +1,18 @@
-import { Lock, KeyRound, Smartphone, Archive, ArrowRight } from "lucide-react";
+import {
+  Lock,
+  KeyRound,
+  Smartphone,
+  Archive,
+  ArrowRight,
+  DoorOpen,
+  Fence,
+  Mail,
+  DoorClosed,
+  ShieldAlert,
+  ClipboardList,
+  Building2,
+  Wrench
+} from "lucide-react";
 
 export const SERVICES = [
   {
@@ -6,7 +20,7 @@ export const SERVICES = [
     icon: Lock,
     title: "Emergency Lockout Service",
     available: "Available 24/7",
-    text: "Locked out of your house, car or shop? We're on the road around the clock and typically reach inner-Brisbane addresses in 15–20 minutes. Non-destructive entry wherever possible, so your locks keep working afterwards."
+    text: "Locked out of your house, car or shop? For a car, we unlock the vehicle only. We're on the road around the clock and typically reach inner-Brisbane addresses in 15–20 minutes. Non-destructive entry wherever possible, so your locks keep working afterwards."
   },
   {
     id: "rekeying-replacement",
@@ -24,7 +38,73 @@ export const SERVICES = [
     id: "safes",
     icon: Archive,
     title: "Safe Opening & Safe Installation",
-    text: "Forgotten combination or a jammed safe? We open and service domestic and commercial safes, then supply and bolt down new safes in the right spot for security and insurance."
+    text: "Forgotten combination or a jammed safe? We provide safe opening and installation services for domestic and commercial properties, then supply and bolt down new safes in the right spot for security and insurance."
+  },
+  {
+    id: "broken-key-extraction",
+    icon: Wrench,
+    title: "Broken Key Extraction",
+    text: "We remove a key that has snapped off in the lock. If the lock cannot be saved, we quote a replacement before fitting one."
+  },
+  {
+    id: "sliding-door-locks",
+    icon: DoorOpen,
+    title: "Sliding Door Locks",
+    text: "We supply and fit locks for sliding doors, and replace a lock that no longer secures the door."
+  },
+  {
+    id: "gate-locks",
+    icon: Fence,
+    title: "Gate Locks",
+    text: "We fit and replace locks on gates, including a lock that has failed or no longer keeps the gate shut."
+  },
+  {
+    id: "deadlocks",
+    icon: Lock,
+    title: "Deadlocks",
+    text: "We supply and fit deadlocks, and replace a deadlock that is worn, damaged or no longer locking properly."
+  },
+  {
+    id: "digital-lock-repairs",
+    icon: Smartphone,
+    title: "Digital Lock Repairs and Resetting",
+    text: "We repair digital locks and reset codes or access when a lock has failed or the codes need to change."
+  },
+  {
+    id: "mailbox-locks",
+    icon: Mail,
+    title: "Mailbox Locks",
+    text: "We fit and replace mailbox locks, including a lock that is jammed or no longer holds."
+  },
+  {
+    id: "door-closers",
+    icon: DoorClosed,
+    title: "Door Closers",
+    text: "We supply and fit door closers so a door shuts and latches as it should."
+  },
+  {
+    id: "burglary-damage-repairs",
+    icon: ShieldAlert,
+    title: "Burglary Damage Repairs",
+    text: "After a break-in, we repair the damaged lock and door hardware and make the entry secure again."
+  },
+  {
+    id: "home-security-assessments",
+    icon: ClipboardList,
+    title: "Home Security Assessments",
+    text: "We look over the home's doors and locks and tell you what should be rekeyed, repaired or replaced."
+  },
+  {
+    id: "commercial-lock-replacement",
+    icon: Building2,
+    title: "Commercial Lock Replacement",
+    text: "We replace locks on shops, offices and other commercial doors, and quote the hardware before we fit it."
+  },
+  {
+    id: "rekeying-between-tenants",
+    icon: KeyRound,
+    title: "Rekeying Between Tenants",
+    text: "When a tenant moves out, we rekey the locks so the previous keys no longer work."
   }
 ];
 
@@ -35,7 +115,7 @@ export default function Services() {
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-wider text-primary">What we do</p>
           <h2 className="mt-2 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            Locksmith services for home, business &amp; car
+            Residential and commercial locksmith services, plus car lockouts
           </h2>
           <p className="mt-3 text-base leading-relaxed text-muted-foreground">
             From emergency lockouts to smart lock upgrades — only the services we

@@ -21,13 +21,22 @@ export default function ServiceAreas() {
         <ul className="mt-8 grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-4">
           {SERVICE_AREA_NAMES.map((s) => {
             const suburb = getSuburbByName(s);
+            const to = suburb ? suburbPath(suburb.slug) : s === "Red Hill" ? "/locksmith-red-hill" : null;
             const className =
               "inline-flex items-center gap-2 rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm font-medium text-foreground";
             return (
               <li key={s}>
-                {suburb ? (
+                {s === "Red Hill" ? (
+                  <a
+                    href="/locksmith-red-hill"
+                    className={`${className} w-full hover:border-primary/40`}
+                  >
+                    <MapPin className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                    {s}
+                  </a>
+                ) : to ? (
                   <Link
-                    to={suburbPath(suburb.slug)}
+                    to={to}
                     className={`${className} w-full hover:border-primary/40`}
                   >
                     <MapPin className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />

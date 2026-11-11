@@ -13,7 +13,7 @@ export default function MobileCallBar() {
           aria-label={`Call ${PHONE_DISPLAY} now`}
         >
           <Phone className="h-5 w-5" aria-hidden="true" />
-          Call now — {PHONE_DISPLAY}
+          Call Now
         </a>
         <button
           onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}

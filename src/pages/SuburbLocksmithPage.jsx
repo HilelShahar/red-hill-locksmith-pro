@@ -5,6 +5,7 @@ import {
   Clock,
   MapPin,
   ShieldCheck,
+  Star,
   ArrowRight,
   Lock,
   KeyRound,
@@ -100,6 +101,14 @@ export default function SuburbLocksmithPage() {
               </div>
 
               <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-white/80">
+                <li className="inline-flex items-center gap-2">
+                  <span className="flex gap-0.5 text-primary" aria-hidden="true">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-current" />
+                    ))}
+                  </span>
+                  <span>5.0 on Google</span>
+                </li>
                 <li className="inline-flex items-center gap-2">
                   <ShieldCheck className="h-4 w-4 text-primary-foreground/90" aria-hidden="true" />
                   Experienced &amp; licensed
@@ -223,7 +232,15 @@ export default function SuburbLocksmithPage() {
                 const hasPage = Boolean(SUBURB_PAGES[nearbySlug]);
                 return (
                   <li key={nearbySlug}>
-                    {hasPage ? (
+                    {nearbySlug === "red-hill" ? (
+                      <a
+                        href="/locksmith-red-hill"
+                        className="inline-flex w-full items-center gap-2 rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm font-medium text-foreground hover:border-primary/40"
+                      >
+                        <MapPin className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                        {name}
+                      </a>
+                    ) : hasPage ? (
                       <Link
                         to={`/locksmith-${nearbySlug}`}
                         className="inline-flex w-full items-center gap-2 rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm font-medium text-foreground hover:border-primary/40"

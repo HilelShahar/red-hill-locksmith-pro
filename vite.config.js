@@ -14,11 +14,27 @@ function quoteApi() {
 
   return {
     name: "quote-api",
-    configureServer: attach,
+    configureServer(server) {
+      attach(server);
+      server.middlewares.use((req, res, next) => {
+        const url = req.url?.split("?")[0];
+        if (url !== "/locksmith-red-hill" && url !== "/locksmith-red-hill/") return next();
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "text/html; charset=utf-8");
+        fs.createReadStream(path.join(root, "public", "locksmith-red-hill", "index.html")).pipe(res);
+      });
+    },
     configurePreviewServer(server) {
       attach(server);
       server.middlewares.use((req, res, next) => {
         const url = req.url?.split("?")[0];
+        if (url === "/about" || url === "/about/") {
+          const query = req.url.includes("?") ? req.url.slice(req.url.indexOf("?")) : "";
+          res.statusCode = 301;
+          res.setHeader("Location", `/${query}`);
+          res.end();
+          return;
+        }
         if (!url || url.startsWith("/api/") || path.extname(url)) return next();
         const page = url === "/"
           ? path.join(root, "dist", "index.html")

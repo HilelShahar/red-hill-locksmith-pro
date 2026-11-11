@@ -55,7 +55,7 @@ function applyHead(html, meta) {
         `<script type="application/ld+json" data-page-seo="true">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>`
     )
     .join("\n    ");
-  next = next.replace("</head>", `    ${jsonLd}\n  </head>`);
+  next = next.replace("</head>", () => `    ${jsonLd}\n  </head>`);
   return next;
 }
 

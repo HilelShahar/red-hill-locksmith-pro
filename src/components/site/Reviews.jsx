@@ -72,7 +72,7 @@ export default function Reviews() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
             >
-              Read our Google reviews
+              Read More Reviews on Google
               <ExternalLink className="h-4 w-4" aria-hidden="true" />
             </a>
             <div className="hidden sm:flex items-center gap-2">

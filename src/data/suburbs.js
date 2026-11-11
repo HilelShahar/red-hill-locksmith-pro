@@ -67,7 +67,7 @@ export const suburbs = {
     services: [
       {
         title: "Emergency locksmith call-outs",
-        text: "Use an emergency locksmith in Paddington when a house, unit, shop or car is shut and you cannot get in. We answer 24/7 and try to open the lock without damaging it, so you are not paying for a new one just to get inside. Call-outs start from $35, and the full price is given before we begin."
+        text: "Use an emergency locksmith in Paddington when a house, unit or shop is shut and you cannot get in, or when a car needs unlocking. Car assistance is limited to unlocking the vehicle. We answer 24/7 and try to open the lock without damaging it, so you are not paying for a new one just to get inside. Call-outs start from $35, and the full price is given before we begin."
       },
       {
         title: "Rekey locks",
@@ -87,7 +87,7 @@ export const suburbs = {
       },
       {
         title: "Safe opening and fitting",
-        text: "Forgotten combination, or a safe that will not open? We open and service domestic and commercial safes, and we supply and bolt down new ones. It is the same mobile visit, at the Paddington address you give us."
+        text: "Forgotten combination, or a safe that will not open? We provide safe opening and installation services for domestic and commercial properties, and we supply and bolt down new ones. It is the same mobile visit, at the Paddington address you give us."
       }
     ],
     residentialHeading: "Houses and units that need a locksmith",
@@ -151,7 +151,7 @@ export const suburbs = {
     introHeading: "Locksmith help that comes to you in Ashgrove",
     intro: [
       "Ashgrove is the suburb on the western side of Red Hill, in postcode 4060. Timber houses, post-war homes, small unit blocks and newer townhouses sit along Waterworks Road and the streets that climb toward The Gap. The usual reasons people call are a lockout, a key that has gone missing, or a lock that no longer lines up with the door.",
-      `This is a mobile locksmith service for Ashgrove, not a local counter you can walk into. Ring ${PHONE_DISPLAY} for an emergency locksmith in Ashgrove — house, shop or car. For rekeying, lock replacement or a smart lock upgrade, call or use the quote form and include the street.`
+      `This is a mobile locksmith service for Ashgrove, not a local counter you can walk into. Ring ${PHONE_DISPLAY} for an emergency locksmith in Ashgrove — a house or shop lockout, or to unlock a car. Car assistance is limited to unlocking the vehicle. For rekeying, lock replacement or a smart lock upgrade, call or use the quote form and include the street.`
     ],
     servicesHeading: "Locksmith jobs we carry out in Ashgrove",
     servicesIntro:
@@ -159,7 +159,7 @@ export const suburbs = {
     services: [
       {
         title: "Emergency lockouts",
-        text: "Need an emergency locksmith in Ashgrove? We are available 24/7 for house, unit, shop and car lockouts, and we aim for non-destructive entry so the lock still works once you are inside. Call-outs start from $35. The full price is quoted before we start. Across inner Brisbane we typically arrive in 15–20 minutes, and we will give you a straight time for your street when you call."
+        text: "Need an emergency locksmith in Ashgrove? We are available 24/7 for house, unit and shop lockouts, and to unlock a car. Car assistance is limited to unlocking the vehicle. We aim for non-destructive entry so the lock still works once you are inside. Call-outs start from $35. The full price is quoted before we start. Across inner Brisbane we typically arrive in 15–20 minutes, and we will give you a straight time for your street when you call."
       },
       {
         title: "Rekey locks",
@@ -179,7 +179,7 @@ export const suburbs = {
       },
       {
         title: "Safes",
-        text: "Forgotten combination or a jammed safe? We open and service domestic and commercial safes, and we supply and bolt down new ones. The visit comes to your Ashgrove address, the same as any other locksmith job."
+        text: "Forgotten combination or a jammed safe? We provide safe opening and installation services for domestic and commercial properties, and we supply and bolt down new ones. The visit comes to your Ashgrove address, the same as any other locksmith job."
       }
     ],
     residentialHeading: "Residential locksmith work for Ashgrove homes",
@@ -218,7 +218,7 @@ export const suburbs = {
     services: [
       {
         title: "Lockouts at a Kelvin Grove door",
-        text: "An emergency locksmith in Kelvin Grove covers a house, unit, shop or car when you cannot get in. We are available 24/7 and aim to open the lock without damaging it. Call-outs start from $35, and the full price is quoted before we start."
+        text: "An emergency locksmith in Kelvin Grove covers a house, unit or shop when you cannot get in, and can unlock a car. Car assistance is limited to unlocking the vehicle. We are available 24/7 and aim to open the lock without damaging it. Call-outs start from $35, and the full price is quoted before we start."
       },
       {
         title: "Rekeying after the keys change",
@@ -238,7 +238,7 @@ export const suburbs = {
       },
       {
         title: "Safe opening and installation",
-        text: "Forgotten combination or a safe that is jammed? We open and service domestic and commercial safes, and we supply and bolt down new ones, at the Kelvin Grove address."
+        text: "Forgotten combination or a safe that is jammed? We provide safe opening and installation services for domestic and commercial properties, and we supply and bolt down new ones, at the Kelvin Grove address."
       }
     ],
     residentialHeading: "Houses and units in Kelvin Grove",
@@ -258,7 +258,7 @@ export const suburbs = {
       },
       {
         q: "Are cars included in a lockout?",
-        a: "Yes. Emergency lockouts cover a house, unit, shop or car. Tell us which it is when you call so we bring the right gear."
+        a: "Yes. Emergency lockouts cover a house, unit or shop, and we can unlock a car. Car assistance is limited to unlocking the vehicle. Tell us which it is when you call so we bring the right gear."
       },
       {
         q: "Can you rekey without replacing the lock?",
@@ -294,7 +294,7 @@ export const suburbs = {
     services: [
       {
         title: "Opening a Bardon lockout",
-        text: "Need an emergency locksmith in Bardon? We answer day and night for a house, unit, shop or car. The aim is non-destructive entry, so the lock can still be used once you are in. You get the full price before we start."
+        text: "Need an emergency locksmith in Bardon? We answer day and night for a house, unit or shop, or to unlock a car. Car assistance is limited to unlocking the vehicle. The aim is non-destructive entry, so the lock can still be used once you are in. You get the full price before we start."
       },
       {
         title: "Rekeying instead of swapping hardware",
@@ -338,7 +338,7 @@ export const suburbs = {
       },
       {
         q: "Can you open or fit a safe?",
-        a: "Yes. We open and service domestic and commercial safes, and we supply and bolt down new ones."
+        a: "Yes. We provide safe opening and installation services for domestic and commercial properties, and we supply and bolt down new ones."
       },
       {
         q: "What does the call-out include?",
@@ -370,7 +370,7 @@ export const suburbs = {
     services: [
       {
         title: "Petrie Terrace lockouts",
-        text: "An emergency locksmith in Petrie Terrace is for a house, unit, shop or car you cannot enter. We work 24/7 and prefer non-destructive entry so the lock still functions afterwards. The full price is given before we begin."
+        text: "An emergency locksmith in Petrie Terrace is for a house, unit or shop you cannot enter, or to unlock a car. Car assistance is limited to unlocking the vehicle. We work 24/7 and prefer non-destructive entry so the lock still functions afterwards. The full price is given before we begin."
       },
       {
         title: "Rekeying a lock you want to keep",
@@ -406,7 +406,7 @@ export const suburbs = {
       },
       {
         q: "Is a car lockout the same phone number?",
-        a: `Yes. Call ${PHONE_DISPLAY} for a house, unit, shop or car. Say which one it is.`
+        a: `Yes. Call ${PHONE_DISPLAY} for a house, unit or shop lockout, or to unlock a car. Car assistance is limited to unlocking the vehicle. Say which one it is.`
       },
       {
         q: "How do I ask for rekeying rather than a new lock?",
@@ -442,7 +442,7 @@ export const suburbs = {
     services: [
       {
         title: "Spring Hill lockouts, any hour",
-        text: "Emergency locksmith help in Spring Hill covers a unit, house, shop or car. We are on call 24/7 and try to get you in without wrecking the lock. You approve the price first. Call-outs start from $35."
+        text: "Emergency locksmith help in Spring Hill covers a unit, house or shop, or unlocking a car. Car assistance is limited to unlocking the vehicle. We are on call 24/7 and try to get you in without wrecking the lock. You approve the price first. Call-outs start from $35."
       },
       {
         title: "Rekeying keys that should retire",
@@ -514,7 +514,7 @@ export const suburbs = {
     services: [
       {
         title: "Herston lockouts",
-        text: "Use this when a Herston house, unit, shop or car is shut and you are outside. Emergency locksmith cover is 24/7. We aim to open the lock without damage. The quoted price comes before the work."
+        text: "Use this when a Herston house, unit or shop is shut and you are outside, or a car needs unlocking. Car assistance is limited to unlocking the vehicle. Emergency locksmith cover is 24/7. We aim to open the lock without damage. The quoted price comes before the work."
       },
       {
         title: "Rekeying to cancel older keys",
@@ -534,7 +534,7 @@ export const suburbs = {
       },
       {
         title: "Safes opened or supplied",
-        text: "We open and service domestic and commercial safes when a combination is lost or the safe is stuck, and we bolt down new safes at the Herston property."
+        text: "We provide safe opening and installation services for domestic and commercial properties when a combination is lost or the safe is stuck, and we bolt down new safes at the Herston property."
       }
     ],
     residentialHeading: "Home locksmith visits in Herston",
@@ -590,7 +590,7 @@ export const suburbs = {
     services: [
       {
         title: "Newmarket lockouts",
-        text: "An emergency locksmith in Newmarket opens a house, unit, shop or car when you are shut out. Cover is 24/7. We try to leave the lock usable. The price is quoted before we start."
+        text: "An emergency locksmith in Newmarket opens a house, unit or shop when you are shut out, and can unlock a car. Car assistance is limited to unlocking the vehicle. Cover is 24/7. We try to leave the lock usable. The price is quoted before we start."
       },
       {
         title: "Rekeying a house or unit",
@@ -626,7 +626,7 @@ export const suburbs = {
       },
       {
         q: "Do you only do houses?",
-        a: "No. Units, shops and cars are part of the same mobile service in Newmarket."
+        a: "No. Units and shops are part of the same mobile service in Newmarket. For a car, we only unlock the vehicle."
       },
       {
         q: "Is there a workshop I should bring the lock to?",
@@ -638,7 +638,7 @@ export const suburbs = {
       },
       {
         q: "Do you install safes?",
-        a: "Yes. We open and service domestic and commercial safes, and we supply and bolt down new ones."
+        a: "Yes. We provide safe opening and installation services for domestic and commercial properties, and we supply and bolt down new ones."
       }
     ],
     ctaHeading: "Ready for a locksmith in Newmarket?",
@@ -666,7 +666,7 @@ export const suburbs = {
     services: [
       {
         title: "Milton lockouts for home or vehicle",
-        text: "Emergency locksmith work in Milton includes a house, unit, shop or car. We are available 24/7 and aim for entry that leaves the lock working. Across inner Brisbane we typically allow 15–20 minutes, then give you a time for your street when you call, because traffic changes it. Call-outs start from $35."
+        text: "Emergency locksmith work in Milton includes a house, unit or shop, or unlocking a car. Car assistance is limited to unlocking the vehicle. We are available 24/7 and aim for entry that leaves the lock working. Across inner Brisbane we typically allow 15–20 minutes, then give you a time for your street when you call, because traffic changes it. Call-outs start from $35."
       },
       {
         title: "Rekeying between households",
@@ -687,7 +687,7 @@ export const suburbs = {
     ],
     residentialHeading: "Milton homes and units",
     residential:
-      "Home jobs are lockouts, rekeying, and night latches or deadlocks that need repair or replacement. Smart locks go on doors that can hold them. If the problem is a safe rather than a door, we open and service domestic safes and bolt down new ones.",
+      "Home jobs are lockouts, rekeying, and night latches or deadlocks that need repair or replacement. Smart locks go on doors that can hold them. If the problem is a safe rather than a door, we provide safe opening and installation for domestic properties and bolt down new ones.",
     commercialHeading: "Milton shops and workplaces",
     commercial:
       "We come to a shop or office for a lockout, for rekeying when a tenant leaves, and for lock replacement on a door that is used hard. Phone for the urgent one. The form is for the one that can wait.",
@@ -702,7 +702,7 @@ export const suburbs = {
       },
       {
         q: "Can you do the car as well as the house?",
-        a: "Yes. Say it is a car lockout when you ring so we know what to bring."
+        a: "Yes. Say it is a car lockout when you ring so we know what to bring. We unlock the vehicle only."
       },
       {
         q: "I want a keypad lock. Will any door take one?",
@@ -738,7 +738,7 @@ export const suburbs = {
     services: [
       {
         title: "Auchenflower lockouts",
-        text: "Call an emergency locksmith in Auchenflower when a house, unit, shop or car will not open. We work 24/7 and prefer non-destructive entry. The full price is agreed before we start."
+        text: "Call an emergency locksmith in Auchenflower when a house, unit or shop will not open, or a car needs unlocking. Car assistance is limited to unlocking the vehicle. We work 24/7 and prefer non-destructive entry. The full price is agreed before we start."
       },
       {
         title: "Rekeying sound locks",
@@ -758,7 +758,7 @@ export const suburbs = {
       },
       {
         title: "Opening and fitting safes",
-        text: "A forgotten combination or a jammed safe can be opened and serviced. New safes can be supplied and bolted down at the Auchenflower address."
+        text: "A forgotten combination or a jammed safe can be opened. New safes can be supplied and bolted down at the Auchenflower address."
       }
     ],
     residentialHeading: "Houses and units in Auchenflower",
@@ -782,7 +782,7 @@ export const suburbs = {
       },
       {
         q: "Can you help if the keys are locked in the car?",
-        a: "Yes. Car lockouts are part of the emergency service. Say that it is a car when you call."
+        a: "Yes. Car lockouts are part of the emergency service, and we unlock the vehicle only. Say that it is a car when you call."
       },
       {
         q: "Are weekends included?",
@@ -805,7 +805,7 @@ export const suburbs = {
       "Brisbane City is on our mobile run from Red Hill. We do not operate a CBD shopfront. Apartments, offices and lockouts are attended at the address, with the price set before work starts.",
     introHeading: "City addresses, same mobile locksmith",
     intro: [
-      "A Brisbane City job might be an apartment door, an office after hours, or keys that should be changed before new people move through. It might also be a car. The first detail we need is which of those it is, plus the street.",
+      "A Brisbane City job might be an apartment door, an office after hours, or keys that should be changed before new people move through. It might also be a car that needs unlocking. Car assistance is limited to unlocking the vehicle. The first detail we need is which of those it is, plus the street.",
       "Spring Hill, Fortitude Valley and Petrie Terrace sit on the city edge. South Brisbane and West End are across the river. We cover the CBD as a service area, not as a second business address.",
       `Emergency locksmith calls go to ${PHONE_DISPLAY}. Rekey locks, repairs, lock replacement and smart lock upgrades that can be scheduled go on the contact form.`
     ],
@@ -815,7 +815,7 @@ export const suburbs = {
     services: [
       {
         title: "CBD and apartment lockouts",
-        text: "An emergency locksmith in Brisbane City attends a unit, house, office, shop or car, 24/7. We aim to open the lock without damaging it. Inner-Brisbane trips are typically 15–20 minutes, and we still give you a time for that address when you call. Call-outs start from $35, quoted in full before we start."
+        text: "An emergency locksmith in Brisbane City attends a unit, house, office or shop, or unlocks a car, 24/7. Car assistance is limited to unlocking the vehicle. We aim to open the lock without damaging it. Inner-Brisbane trips are typically 15–20 minutes, and we still give you a time for that address when you call. Call-outs start from $35, quoted in full before we start."
       },
       {
         title: "Rekeying an apartment or office",
@@ -835,7 +835,7 @@ export const suburbs = {
       },
       {
         title: "Safe opening and supply",
-        text: "Domestic and commercial safes can be opened and serviced if a combination is forgotten or the safe is jammed. New safes are supplied and bolted down."
+        text: "Domestic and commercial safes can be opened if a combination is forgotten or the safe is jammed. New safes are supplied and bolted down."
       }
     ],
     residentialHeading: "Apartments and the occasional house",
@@ -891,7 +891,7 @@ export const suburbs = {
     services: [
       {
         title: "Valley lockouts, day or night",
-        text: "An emergency locksmith in Fortitude Valley covers a unit, house, shop or car at any hour. Non-destructive entry is the aim, so you are not replacing a lock just to get through the door. The price is quoted first."
+        text: "An emergency locksmith in Fortitude Valley covers a unit, house or shop, or unlocking a car, at any hour. Car assistance is limited to unlocking the vehicle. Non-destructive entry is the aim, so you are not replacing a lock just to get through the door. The price is quoted first."
       },
       {
         title: "Rekeying when access must change",
@@ -912,7 +912,7 @@ export const suburbs = {
     ],
     residentialHeading: "Apartments and homes in the Valley",
     residential:
-      "Residents call for lockouts, rekeying, and repairs or replacements on night latches and deadlocks. Smart locks are fitted where the door allows. Safe opening, servicing, and bolting down a new safe are available when that is the request.",
+      "Residents call for lockouts, rekeying, and repairs or replacements on night latches and deadlocks. Smart locks are fitted where the door allows. Safe opening and bolting down a new safe are available when that is the request.",
     commercialHeading: "Shops and small offices",
     commercial:
       "We attend shop and office lockouts, rekey when access needs to change, and replace locks on doors that cop heavy use. Night and weekend emergencies are phone calls. Daytime planning can be the form.",
@@ -939,7 +939,7 @@ export const suburbs = {
       },
       {
         q: "Do you open safes?",
-        a: "Yes. We open and service domestic and commercial safes, and we can supply and bolt down a new one."
+        a: "Yes. We provide safe opening and installation services for domestic and commercial properties, and we can supply and bolt down a new one."
       }
     ],
     ctaHeading: "Call a locksmith for Fortitude Valley",
@@ -958,7 +958,7 @@ export const suburbs = {
       "Bowen Hills sits between the Valley and Herston, and we cover it from Red Hill. There is no Bowen Hills branch. You are quoted before a lock is opened, repaired or replaced.",
     introHeading: "A short brief is enough",
     intro: [
-      "Tell us if the problem is a lockout, keys that should be cancelled, or a lock that needs repair or replacement. Add whether it is a house, a unit, a workplace or a car. That is enough to decide if we should come now.",
+      "Tell us if the problem is a lockout, keys that should be cancelled, or a lock that needs repair or replacement. Add whether it is a house, a unit or a workplace. If it is a car, we can only unlock it. That is enough to decide if we should come now.",
       "Fortitude Valley, Herston, Kelvin Grove and Newmarket are the neighbours already listed on the site. Bowen Hills is part of that mobile area, not a separate locksmith premises."
     ],
     servicesHeading: "Bowen Hills jobs we will travel for",
@@ -967,7 +967,7 @@ export const suburbs = {
     services: [
       {
         title: "Bowen Hills lockouts",
-        text: "Emergency locksmith help in Bowen Hills is for a house, unit, shop or car you cannot enter. It is available 24/7. We try to keep the lock intact. The price is set before we start."
+        text: "Emergency locksmith help in Bowen Hills is for a house, unit or shop you cannot enter, or to unlock a car. Car assistance is limited to unlocking the vehicle. It is available 24/7. We try to keep the lock intact. The price is set before we start."
       },
       {
         title: "Rekeying after a move or a loss",
@@ -988,7 +988,7 @@ export const suburbs = {
     ],
     residentialHeading: "Homes in Bowen Hills",
     residential:
-      "Home visits cover getting you in, rekeying, and repairing or replacing a night latch or deadlock. Smart locks are an upgrade where the door can carry them. Safes, if the combination is forgotten or the safe is jammed, can be opened, serviced, or supplied and bolted down.",
+      "Home visits cover getting you in, rekeying, and repairing or replacing a night latch or deadlock. Smart locks are an upgrade where the door can carry them. Safes, if the combination is forgotten or the safe is jammed, can be opened, or supplied and bolted down.",
     commercialHeading: "Workplaces in Bowen Hills",
     commercial:
       "Lockouts, rekeying after a tenancy change, and lock replacement on busy doors are the commercial jobs. Call when access has failed. Write when you are choosing a day.",
@@ -1003,7 +1003,7 @@ export const suburbs = {
       },
       {
         q: "What do you need to know before you come?",
-        a: "The street, whether it is a house, unit, shop or car, and whether you are locked out or booking a rekey, repair or replacement."
+        a: "The street, whether it is a house, unit or shop, and whether you are locked out or booking a rekey, repair or replacement. For a car, we only unlock the vehicle."
       },
       {
         q: "Can a smart lock go on any door?",
@@ -1039,7 +1039,7 @@ export const suburbs = {
     services: [
       {
         title: "West End lockouts",
-        text: "An emergency locksmith in West End handles a house, unit, shop or car, 24/7. The preference is to get you in without damaging the lock. You hear the full price before we start."
+        text: "An emergency locksmith in West End handles a house, unit or shop, or unlocks a car, 24/7. Car assistance is limited to unlocking the vehicle. The preference is to get you in without damaging the lock. You hear the full price before we start."
       },
       {
         title: "Rekeying West End doors",
@@ -1059,7 +1059,7 @@ export const suburbs = {
       },
       {
         title: "Safes opened or fitted",
-        text: "Forgotten combinations and jammed safes are opened and serviced. New safes are supplied and bolted down at the West End property."
+        text: "Forgotten combinations and jammed safes are opened. New safes are supplied and bolted down at the West End property."
       }
     ],
     residentialHeading: "West End houses and units",
@@ -1083,7 +1083,7 @@ export const suburbs = {
       },
       {
         q: "What if it is the car, not the house?",
-        a: "Call and say it is a car lockout. That is part of the emergency service."
+        a: "Call and say it is a car lockout. That is part of the emergency service, and we unlock the vehicle only."
       },
       {
         q: "Are public holidays covered?",
@@ -1115,7 +1115,7 @@ export const suburbs = {
     services: [
       {
         title: "South Brisbane lockouts",
-        text: "Need an emergency locksmith in South Brisbane? We attend a house, unit, shop or car at any hour and try to open the lock without damage. Call-outs start from $35. The rest of the price is quoted before we start."
+        text: "Need an emergency locksmith in South Brisbane? We attend a house, unit or shop, or unlock a car, at any hour and try to open the lock without damage. Car assistance is limited to unlocking the vehicle. Call-outs start from $35. The rest of the price is quoted before we start."
       },
       {
         title: "Rekeying without a workshop visit",
@@ -1136,7 +1136,7 @@ export const suburbs = {
     ],
     residentialHeading: "South Brisbane homes",
     residential:
-      "We unlock homes, rekey them when the household changes, and repair or replace night latches and deadlocks. A smart lock is fitted if the door will support it. If you need a safe opened, serviced, or bolted down, say so. That work is part of the same mobile service.",
+      "We unlock homes, rekey them when the household changes, and repair or replace night latches and deadlocks. A smart lock is fitted if the door will support it. If you need a safe opened or bolted down, say so. That work is part of the same mobile service.",
     commercialHeading: "Offices and shops in South Brisbane",
     commercial:
       "Workplace visits cover lockouts, rekeying when people or tenants change, and lock replacement on doors in daily use. Call if the door is shut and you need it open. Use Contact us if you are booking the rest.",
@@ -1155,7 +1155,7 @@ export const suburbs = {
       },
       {
         q: "Do you work on commercial safes?",
-        a: "Yes. We open and service domestic and commercial safes, and we supply and bolt down new safes."
+        a: "Yes. We provide safe opening and installation services for domestic and commercial properties, and we supply and bolt down new safes."
       },
       {
         q: "What if I am locked out on a weeknight?",

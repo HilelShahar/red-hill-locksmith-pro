@@ -1,5 +1,7 @@
 {
   "redirects": [
+    { "source": "/about", "destination": "/", "statusCode": 301 },
+    { "source": "/about/", "destination": "/", "statusCode": 301 },
     { "source": "/(.*)/", "destination": "/$1", "permanent": true }
   ],
   "rewrites": [

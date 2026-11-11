@@ -11,7 +11,18 @@ const SERVICE_OPTIONS = [
   "Lock Rekeying & Lock Replacement",
   "Smart Lock Installation",
   "Safe Opening & Safe Installation",
-  "Something else"
+  "Broken Key Extraction",
+  "Sliding Door Locks",
+  "Gate Locks",
+  "Deadlocks",
+  "Digital Lock Repairs and Resetting",
+  "Mailbox Locks",
+  "Door Closers",
+  "Burglary Damage Repairs",
+  "Home Security Assessments",
+  "Commercial Lock Replacement",
+  "Rekeying Between Tenants",
+  "Other / Not Sure"
 ];
 
 export default function ContactSection({ defaultLocation = "" }) {
