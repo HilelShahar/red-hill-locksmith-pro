@@ -1,5 +1,6 @@
 import { Phone, Clock, MapPin, ShieldCheck, Star } from "lucide-react";
 import { Image } from "@/components/ui/image";
+import { GOOGLE_REVIEW_COUNT } from "@/components/site/reviewsData";
 
 const PHONE_DISPLAY = "0416 807 444";
 const PHONE_TEL = "+61416807444";
@@ -62,7 +63,7 @@ export default function Hero({ heroImage }) {
                   <Star key={i} className="h-4 w-4 fill-current" />
                 ))}
               </span>
-              <span>5.0 on Google</span>
+              <span>5.0 · {GOOGLE_REVIEW_COUNT} reviews</span>
             </li>
             <li className="inline-flex items-center gap-2">
               <ShieldCheck className="h-4 w-4 text-primary-foreground/90" aria-hidden="true" />
